@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4yhlgmx83je4"]
+
+[ext_resource type="Script" uid="uid://s8nla0feg2ra" path="res://Enitidades/Player/player_behaviour.gd" id="1_o33kl"]
+[ext_resource type="Script" uid="uid://cgirijbg3dbtq" path="res://Enitidades/Player/state_machine.gd" id="2_eecqu"]
+[ext_resource type="Script" uid="uid://cixi4f5n3n6k0" path="res://Enitidades/Player/idle.gd" id="3_rx5ri"]
+[ext_resource type="Script" uid="uid://crfkudaqnntqt" path="res://Enitidades/Player/walk.gd" id="4_ps34p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p68uw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o33kl"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_o33kl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_p68uw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_o33kl")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
+script = ExtResource("2_eecqu")
+init_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://cgirijbg3dbtq"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_rx5ri")
+metadata/_custom_type_script = "uid://cixi4f5n3n6k0"
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_ps34p")
+metadata/_custom_type_script = "uid://crfkudaqnntqt"

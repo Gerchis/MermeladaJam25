@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck1hlvv08ijcx"]
+
+[ext_resource type="PackedScene" uid="uid://css1bhyeetc4b" path="res://Mapas/game_window.tscn" id="1_igum5"]
+[ext_resource type="Shader" uid="uid://c50o78ml43po0" path="res://Recursos/Shaders/vhs_effect.gdshader" id="2_e4xe7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ktffj"]
+frequency = 0.083
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3lqyo"]
+noise = SubResource("FastNoiseLite_ktffj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_857sk"]
+shader = ExtResource("2_e4xe7")
+shader_parameter/curvature = 2.0
+shader_parameter/skip = 0.02
+shader_parameter/image_flicker = 0.05
+shader_parameter/vignette_flicker_speed = 0.0
+shader_parameter/vignette_strength = 1.0
+shader_parameter/small_scanlines_speed = 1.0
+shader_parameter/small_scanlines_proximity = 1.0
+shader_parameter/small_scanlines_opacity = 1.0
+shader_parameter/scanlines_opacity = 0.5
+shader_parameter/scanlines_speed = 1.0
+shader_parameter/scanline_thickness = 0.5
+shader_parameter/scanlines_spacing = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_3lqyo")
+
+[node name="MainWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameWindow" parent="." instance=ExtResource("1_igum5")]
+
+[node name="Effect" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Effect"]
+material = SubResource("ShaderMaterial_857sk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

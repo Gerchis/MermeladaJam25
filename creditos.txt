@@ -1,0 +1,2 @@
+Mobius-Shader:tlaverne, from https://godotshaders.com/shader/moebius-shader/
+VHS-Shader : LazarusOverlook from https://godotshaders.com/shader/vcr-analog-distortions/

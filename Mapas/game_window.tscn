@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://css1bhyeetc4b"]
+
+[ext_resource type="PackedScene" uid="uid://bfug1imnrbvx4" path="res://Mapas/test.tscn" id="1_kexph"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kexph"]
+viewport_path = NodePath("GameViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexph"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_kexph")
+uv1_scale = Vector3(2, 2, 2)
+uv1_offset = Vector3(0.445, -0.51, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3n65s"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_kexph")
+
+[sub_resource type="World3D" id="World3D_kexph"]
+
+[node name="GameWindow" type="Node3D"]
+
+[node name="ProjectetCylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 3, 0.0299997, 0.0364132, -2.01884)
+mesh = SubResource("CylinderMesh_3n65s")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.396896)
+
+[node name="GameViewport" type="SubViewport" parent="."]
+own_world_3d = true
+world_3d = SubResource("World3D_kexph")
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="Test" parent="GameViewport" instance=ExtResource("1_kexph")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.4413)
