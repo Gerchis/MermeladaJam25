@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4yhlgmx83je4"]
+[gd_scene load_steps=10 format=3 uid="uid://c4yhlgmx83je4"]
 
 [ext_resource type="Script" uid="uid://s8nla0feg2ra" path="res://Enitidades/Player/player_behaviour.gd" id="1_o33kl"]
 [ext_resource type="Script" uid="uid://cgirijbg3dbtq" path="res://Enitidades/Player/state_machine.gd" id="2_eecqu"]
 [ext_resource type="Script" uid="uid://cixi4f5n3n6k0" path="res://Enitidades/Player/idle.gd" id="3_rx5ri"]
 [ext_resource type="Script" uid="uid://crfkudaqnntqt" path="res://Enitidades/Player/walk.gd" id="4_ps34p"]
+[ext_resource type="Script" uid="uid://dqdetarcj7035" path="res://Enitidades/Player/jump.gd" id="5_eg7n6"]
+[ext_resource type="Script" uid="uid://hm1nqk8komik" path="res://Enitidades/Player/fall.gd" id="6_dicsw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p68uw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o33kl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dicsw"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_o33kl")
@@ -30,3 +34,32 @@ metadata/_custom_type_script = "uid://cixi4f5n3n6k0"
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("4_ps34p")
 metadata/_custom_type_script = "uid://crfkudaqnntqt"
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("5_eg7n6")
+metadata/_custom_type_script = "uid://dqdetarcj7035"
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("6_dicsw")
+metadata/_custom_type_script = "uid://hm1nqk8komik"
+
+[node name="JumpTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="RightCast" type="ShapeCast3D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CapsuleShape3D_dicsw")
+target_position = Vector3(0.2, 0, 0)
+
+[node name="LeftCast" type="ShapeCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00849485, 1.19209e-07, 0.000780582)
+shape = SubResource("CapsuleShape3D_dicsw")
+target_position = Vector3(-0.2, 0, 0)
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

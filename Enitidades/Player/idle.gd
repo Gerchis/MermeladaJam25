@@ -8,6 +8,8 @@ func _enter(previous_state: String, data := {}) -> void:
 func _update(_delta: float) -> void:
 	if player.movement_inpus.x != 0.0 and player.is_on_floor():
 		transition_to.emit(WALK)
+	elif player.is_jumps_pressed:
+		transition_to.emit(JUMP)
 
 func _physics_update(_delta: float) -> void:
 	handle_gravity(_delta)

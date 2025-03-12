@@ -1,6 +1,12 @@
 class_name Walk
 extends PlayerState
 
+func _update(_delta: float) -> void:
+	if player.velocity.x == 0.0 and player.movement_inpus.x == 0.0:
+		transition_to.emit(IDLE)
+	elif player.is_jumps_pressed:
+		transition_to.emit(JUMP)
+
 func _physics_update(_delta: float) -> void:
 	handle_movement(_delta)
 	handle_gravity(_delta)

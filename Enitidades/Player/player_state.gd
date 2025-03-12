@@ -5,6 +5,8 @@ signal transition_to(next_state: String, data: Dictionary)
 
 const IDLE: String = "Idle"
 const WALK: String = "Walk"
+const JUMP: String = "Jump"
+const FALL: String = "Fall"
 
 var player: PlayerBehaviour
 
