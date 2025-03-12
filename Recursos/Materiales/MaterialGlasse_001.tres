@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cpimfuyeh827u"]
+
+[resource]
+resource_name = "MaterialGlasse_001"
+cull_mode = 2
+albedo_color = Color(1, 0.187838, 0.430511, 1)
+roughness = 0.0708662
