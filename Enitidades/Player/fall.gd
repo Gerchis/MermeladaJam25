@@ -4,6 +4,11 @@ extends PlayerState
 func _enter(previous_state: String, data := {}) -> void:
 	if player.jumps_count == 0:
 		player.coyote_timer.start(player.coyote_time)
+	
+	anim.set("parameters/conditions/isWalking", false)
+	anim.set("parameters/conditions/isIdle", false)
+	anim.set("parameters/conditions/inFloor", false)
+	anim.set("parameters/conditions/isFalling", true)
 
 func _update(_delta: float) -> void:
 	if player.is_on_floor() and player.velocity.x == 0.0:
