@@ -1,14 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://bk5k783km8q6j"]
+[gd_scene load_steps=30 format=3 uid="uid://bk5k783km8q6j"]
 
 [ext_resource type="PackedScene" uid="uid://ce4cpdx6ya06n" path="res://Mapas/tutorial_map.tscn" id="1_fsu5c"]
 [ext_resource type="Script" uid="uid://bxhcvsgkybdan" path="res://Mapas/map_generation.gd" id="1_i3hsw"]
 [ext_resource type="PackedScene" uid="uid://c4yhlgmx83je4" path="res://Enitidades/Player/player.tscn" id="2_05nn2"]
-[ext_resource type="PackedScene" uid="uid://bv27vagoo0qxd" path="res://Mapas/base_map.tscn" id="3_ac6o2"]
+[ext_resource type="PackedScene" uid="uid://dks8ox8fgj6v8" path="res://Mapas/cake_map_01.tscn" id="3_7wn5i"]
 [ext_resource type="Shader" uid="uid://beautggkve2un" path="res://Recursos/Shaders/comic_effect.gdshader" id="3_m0jot"]
 [ext_resource type="Script" uid="uid://s832ko1v0k0f" path="res://Enitidades/Camera/camera_controller.gd" id="3_rbbxx"]
+[ext_resource type="PackedScene" uid="uid://8vhk0lutwf13" path="res://Mapas/cake_map_02.tscn" id="4_t6034"]
+[ext_resource type="PackedScene" uid="uid://dkss7nomejf7" path="res://Mapas/cake_map_03.tscn" id="5_w1j0d"]
 [ext_resource type="Texture2D" uid="uid://b34hx8cargbrb" path="res://Recursos/Sprites/BackGround_003.png" id="6_3px8u"]
+[ext_resource type="PackedScene" uid="uid://5b1n61jseau4" path="res://Mapas/cake_map_04.tscn" id="6_kcv3j"]
 [ext_resource type="Texture2D" uid="uid://c071xi6t55p5h" path="res://Recursos/Sprites/BackGround_Nubes_001.png" id="7_krl2y"]
 [ext_resource type="Shader" uid="uid://ct6gpurrpd7mo" path="res://Recursos/Shaders/scrolling_effect.gdshader" id="7_llbv8"]
+[ext_resource type="PackedScene" uid="uid://d2d61x7lnxput" path="res://Mapas/cake_map_05.tscn" id="7_rgi0n"]
 [ext_resource type="Texture2D" uid="uid://cs5lax4k1w5dj" path="res://Recursos/Sprites/BackGround_Nubes_002.png" id="9_g47re"]
 [ext_resource type="Texture2D" uid="uid://befxarcmccru" path="res://Recursos/Sprites/Caramelotxt_002.png" id="10_g47re"]
 [ext_resource type="Script" uid="uid://dapcccx6kjxpl" path="res://Enitidades/Chaser/chaser.gd" id="12_7wn5i"]
@@ -91,7 +95,7 @@ script = ExtResource("1_i3hsw")
 player = NodePath("Player")
 cam = NodePath("Camera3D")
 tutorial_map = ExtResource("1_fsu5c")
-game_maps = Array[PackedScene]([ExtResource("3_ac6o2")])
+game_maps = Array[PackedScene]([ExtResource("3_7wn5i"), ExtResource("4_t6034"), ExtResource("5_w1j0d"), ExtResource("6_kcv3j"), ExtResource("7_rgi0n")])
 
 [node name="Player" parent="." instance=ExtResource("2_05nn2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5695, 1, 0)
