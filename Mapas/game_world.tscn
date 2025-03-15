@@ -1,0 +1,173 @@
+[gd_scene load_steps=26 format=3 uid="uid://bk5k783km8q6j"]
+
+[ext_resource type="PackedScene" uid="uid://ce4cpdx6ya06n" path="res://Mapas/tutorial_map.tscn" id="1_fsu5c"]
+[ext_resource type="Script" uid="uid://bxhcvsgkybdan" path="res://Mapas/map_generation.gd" id="1_i3hsw"]
+[ext_resource type="PackedScene" uid="uid://c4yhlgmx83je4" path="res://Enitidades/Player/player.tscn" id="2_05nn2"]
+[ext_resource type="PackedScene" uid="uid://bv27vagoo0qxd" path="res://Mapas/base_map.tscn" id="3_ac6o2"]
+[ext_resource type="Shader" uid="uid://beautggkve2un" path="res://Recursos/Shaders/comic_effect.gdshader" id="3_m0jot"]
+[ext_resource type="Script" uid="uid://s832ko1v0k0f" path="res://Enitidades/Camera/camera_controller.gd" id="3_rbbxx"]
+[ext_resource type="Texture2D" uid="uid://b34hx8cargbrb" path="res://Recursos/Sprites/BackGround_003.png" id="6_3px8u"]
+[ext_resource type="Texture2D" uid="uid://c071xi6t55p5h" path="res://Recursos/Sprites/BackGround_Nubes_001.png" id="7_krl2y"]
+[ext_resource type="Shader" uid="uid://ct6gpurrpd7mo" path="res://Recursos/Shaders/scrolling_effect.gdshader" id="7_llbv8"]
+[ext_resource type="Texture2D" uid="uid://cs5lax4k1w5dj" path="res://Recursos/Sprites/BackGround_Nubes_002.png" id="9_g47re"]
+[ext_resource type="Texture2D" uid="uid://befxarcmccru" path="res://Recursos/Sprites/Caramelotxt_002.png" id="10_g47re"]
+[ext_resource type="Script" uid="uid://dapcccx6kjxpl" path="res://Enitidades/Chaser/chaser.gd" id="12_7wn5i"]
+
+[sub_resource type="Environment" id="Environment_m0jot"]
+background_mode = 3
+background_color = Color(0.957833, 0.77, 1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.67, 0.67, 0.67, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3px8u"]
+shader = ExtResource("7_llbv8")
+shader_parameter/scrolling_texture = ExtResource("7_krl2y")
+shader_parameter/scroll_speed = -0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0s2n"]
+render_priority = 0
+shader = ExtResource("3_m0jot")
+shader_parameter/zNear = 0.05
+shader_parameter/zFar = 100.0
+shader_parameter/outlineThickness = 0.5
+shader_parameter/outlineColor = Color(0.144063, 0.144063, 0.144063, 1)
+shader_parameter/wiggleFrequency = 0.08
+shader_parameter/wiggleAmplitude = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_i3hsw"]
+material = SubResource("ShaderMaterial_e0s2n")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ac6o2"]
+
+[sub_resource type="Curve" id="Curve_g47re"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.677612, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ac6o2"]
+texture_mode = 1
+curve = SubResource("Curve_g47re")
+
+[sub_resource type="Curve" id="Curve_3px8u"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0835821, 1), 0.0, 0.0, 0, 0, Vector2(0.486567, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0450238), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_g47re"]
+curve = SubResource("Curve_3px8u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ac6o2"]
+lifetime_randomness = 0.5
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 13, 3)
+angle_min = 1.07288e-05
+angle_max = 360.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+gravity = Vector3(-8, -5, 0)
+scale_curve = SubResource("CurveTexture_g47re")
+color = Color(0.62, 0.62, 0.62, 1)
+alpha_curve = SubResource("CurveTexture_ac6o2")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wn5i"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("10_g47re")
+
+[sub_resource type="SphereMesh" id="SphereMesh_t6034"]
+material = SubResource("StandardMaterial3D_7wn5i")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wn5i"]
+size = Vector3(5.20746, 31.95, 6.7312)
+
+[node name="GameWorld" type="Node3D" node_paths=PackedStringArray("player", "cam")]
+script = ExtResource("1_i3hsw")
+player = NodePath("Player")
+cam = NodePath("Camera3D")
+tutorial_map = ExtResource("1_fsu5c")
+game_maps = Array[PackedScene]([ExtResource("3_ac6o2")])
+
+[node name="Player" parent="." instance=ExtResource("2_05nn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5695, 1, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m0jot")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707009, 0.499393, -0.500743, 0.000787331, 0.707504, 0.706709, 0.707204, -0.500044, 0.499819, 0, 6.43079, 0)
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 429.0
+offset_top = -37.0
+offset_right = 1539.0
+offset_bottom = 508.0
+texture = ExtResource("6_3px8u")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_3px8u")
+offset_left = 200.0
+offset_top = 166.0
+offset_right = 1734.0
+offset_bottom = 378.0
+texture = ExtResource("9_g47re")
+expand_mode = 1
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 0.965957, 0.258701, 0, -0.258701, 0.965957, -77.8985, 10.1652, 27.2018)
+fov = 64.8
+size = 16.816
+near = 0.06
+far = 3999.5
+script = ExtResource("3_rbbxx")
+player = NodePath("../Player")
+x_offset = 3.0
+y_offset = 5.5
+
+[node name="LineEffect" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00286019, 0.00771356, -0.00164175)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_i3hsw")
+
+[node name="LimitL" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(6.71125, 0, 0, 0, 6.48278, -1.73621, 0, 1.73621, 6.48278, -13.9452, -0.0663922, -28.1782)
+visible = false
+mesh = SubResource("CylinderMesh_ac6o2")
+skeleton = NodePath("../..")
+
+[node name="LimitR" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(6.71125, 0, 0, 0, 6.48278, -1.73621, 0, 1.73621, 6.48278, 21.6647, -0.015028, -28.1645)
+visible = false
+mesh = SubResource("CylinderMesh_ac6o2")
+skeleton = NodePath("../..")
+
+[node name="Chaser" type="GPUParticles3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.97, 2.97174, 0.342386)
+sorting_offset = 200.0
+amount = 1600
+lifetime = 3.0
+preprocess = 5.0
+randomness = 1.0
+local_coords = true
+draw_order = 1
+process_material = SubResource("ParticleProcessMaterial_ac6o2")
+draw_pass_1 = SubResource("SphereMesh_t6034")
+script = ExtResource("12_7wn5i")
+player = NodePath("../Player")
+max_distance = 30.0
+
+[node name="Area3D" type="Area3D" parent="Chaser"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chaser/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57846, -2.49353, 0.364136)
+shape = SubResource("BoxShape3D_7wn5i")

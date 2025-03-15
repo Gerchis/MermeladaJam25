@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm3xh4fqboekr"]
+
+[ext_resource type="PackedScene" uid="uid://4yv6io4jj7ju" path="res://Recursos/Modelos/Texturizado_Pretzel_Ojos_Final.glb" id="1_krwng"]
+
+[node name="Texturizado_Pretzel_Ojos_Final" instance=ExtResource("1_krwng")]

@@ -1,29 +1,69 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck1hlvv08ijcx"]
+[gd_scene load_steps=15 format=3 uid="uid://ck1hlvv08ijcx"]
 
-[ext_resource type="PackedScene" uid="uid://css1bhyeetc4b" path="res://Mapas/game_window.tscn" id="1_igum5"]
-[ext_resource type="Shader" uid="uid://c50o78ml43po0" path="res://Recursos/Shaders/vhs_effect.gdshader" id="2_e4xe7"]
+[ext_resource type="Script" uid="uid://cy8v28ymthxs5" path="res://Enitidades/MainMenu/main_menu.gd" id="2_857sk"]
+[ext_resource type="Shader" uid="uid://cap2hhowunnuc" path="res://Recursos/Shaders/crt_effect.gdshader" id="2_e4xe7"]
+[ext_resource type="Texture2D" uid="uid://cvs8v3bga50wn" path="res://Recursos/Sprites/SpritSheet_BTNS_MainMenu_001.png" id="2_ktffj"]
+[ext_resource type="Texture2D" uid="uid://b2xh7op4jrjvg" path="res://Recursos/Sprites/MainMenu_001.png" id="3_ktffj"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ktffj"]
-frequency = 0.083
+[sub_resource type="AtlasTexture" id="AtlasTexture_857sk"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1696, 1256, 176, 56)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3lqyo"]
-noise = SubResource("FastNoiseLite_ktffj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktffj"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1336, 1253, 176, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itgvu"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1336, 1256, 176, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maokc"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1688, 1448, 256, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n88hn"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1312, 1445, 256, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00rlb"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1310, 1448, 256, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bmkh"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1688, 1632, 264, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfv6h"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1310, 1629, 264, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7rpa"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1310, 1632, 264, 72)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_857sk"]
 shader = ExtResource("2_e4xe7")
-shader_parameter/curvature = 2.0
-shader_parameter/skip = 0.02
-shader_parameter/image_flicker = 0.05
-shader_parameter/vignette_flicker_speed = 0.0
-shader_parameter/vignette_strength = 1.0
-shader_parameter/small_scanlines_speed = 1.0
-shader_parameter/small_scanlines_proximity = 1.0
-shader_parameter/small_scanlines_opacity = 1.0
-shader_parameter/scanlines_opacity = 0.5
-shader_parameter/scanlines_speed = 1.0
-shader_parameter/scanline_thickness = 0.5
-shader_parameter/scanlines_spacing = 1.0
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_3lqyo")
+shader_parameter/overlay = false
+shader_parameter/resolution = Vector2(1280, 960)
+shader_parameter/brightness = 1.4
+shader_parameter/scanlines_opacity = 0.1
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.01
+shader_parameter/roll = true
+shader_parameter/roll_speed = -4.0
+shader_parameter/roll_size = 20.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.005
+shader_parameter/aberration = 4.75e-08
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/pixelate = false
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.25
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 1.0
+shader_parameter/vignette_opacity = 0.772
 
 [node name="MainWindow" type="Control"]
 layout_mode = 3
@@ -33,7 +73,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameWindow" parent="." instance=ExtResource("1_igum5")]
+[node name="MainMenu" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ktffj")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_857sk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -317.0
+offset_right = 83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="PlayButton" type="TextureButton" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_857sk")
+texture_pressed = SubResource("AtlasTexture_ktffj")
+texture_hover = SubResource("AtlasTexture_itgvu")
+texture_focused = SubResource("AtlasTexture_itgvu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="OptionsButton" type="TextureButton" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_maokc")
+texture_pressed = SubResource("AtlasTexture_n88hn")
+texture_hover = SubResource("AtlasTexture_00rlb")
+texture_focused = SubResource("AtlasTexture_00rlb")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CreditsButton" type="TextureButton" parent="MainMenu/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_8bmkh")
+texture_pressed = SubResource("AtlasTexture_xfv6h")
+texture_hover = SubResource("AtlasTexture_c7rpa")
+texture_focused = SubResource("AtlasTexture_c7rpa")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Effect" type="CanvasLayer" parent="."]
 
@@ -44,3 +141,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_pressed"]

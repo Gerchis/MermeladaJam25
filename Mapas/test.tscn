@@ -21,7 +21,7 @@ albedo_color = Color(0.13, 0.362, 1, 1)
 [sub_resource type="TorusMesh" id="TorusMesh_rucee"]
 material = SubResource("StandardMaterial3D_3lqyo")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0s2n"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stgmh"]
 render_priority = 0
 shader = ExtResource("1_e0s2n")
 shader_parameter/zNear = 0.05
@@ -32,7 +32,7 @@ shader_parameter/wiggleFrequency = 0.08
 shader_parameter/wiggleAmplitude = 2.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_i853i"]
-material = SubResource("ShaderMaterial_e0s2n")
+material = SubResource("ShaderMaterial_stgmh")
 flip_faces = true
 size = Vector2(2, 2)
 
@@ -90,7 +90,7 @@ visible = false
 mesh = SubResource("TorusMesh_rucee")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965957, 0.258701, 0, -0.258701, 0.965957, 1.22046, 7.38118, 9.14331)
+transform = Transform3D(1, 0, 0, 0, 0.965957, 0.258701, 0, -0.258701, 0.965957, 12.9717, 11.0554, 16.8789)
 fov = 64.8
 size = 16.816
 near = 0.06
@@ -141,28 +141,49 @@ transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907
 mesh = ExtResource("5_ud2a4")
 skeleton = NodePath("../MeshInstance3D4")
 
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, -11.5388, -3.63252, -4.31388)
+mesh = ExtResource("5_ud2a4")
+skeleton = NodePath("../MeshInstance3D4")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, -16.406, -3.63252, -4.31388)
+mesh = ExtResource("5_ud2a4")
+skeleton = NodePath("../MeshInstance3D4")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, -20.9946, -3.63252, -4.31388)
+mesh = ExtResource("5_ud2a4")
+skeleton = NodePath("../MeshInstance3D4")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, -24.9946, -3.63252, -4.31388)
+mesh = ExtResource("5_ud2a4")
+skeleton = NodePath("../MeshInstance3D4")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, -29.9946, -3.63252, -4.31388)
+mesh = ExtResource("5_ud2a4")
+skeleton = NodePath("../MeshInstance3D4")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, -34.9946, -3.63252, -4.31388)
+mesh = ExtResource("5_ud2a4")
+skeleton = NodePath("../MeshInstance3D4")
+
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, 2.9458, -3.63252, -4.31388)
 mesh = ExtResource("5_ud2a4")
 skeleton = NodePath("../MeshInstance3D4")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, -6.43124, -3.66007, -4.31419)
+transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, -32.7161, -3.66007, -4.31419)
 mesh = ExtResource("6_sbxno")
 skeleton = NodePath("../MeshInstance3D4")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0223907, 0, -0.999749, 0, 1, 0, 0.999749, 0, 0.0223907, 2.73898, -3.63252, -4.31419)
 mesh = ExtResource("4_stgmh")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 24.3816, 0, 0, 0, 4.58986, 5.57323, 4.37882, -4.20157)
-mesh = SubResource("BoxMesh_stgmh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D9"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D9/StaticBody3D"]
-shape = SubResource("BoxShape3D_ud2a4")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 24.3816, 0, 0, 0, 4.58986, -8.81696, 4.37882, -4.20157)

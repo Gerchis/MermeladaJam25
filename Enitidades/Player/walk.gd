@@ -1,6 +1,10 @@
 class_name Walk
 extends PlayerState
 
+func _enter(previous_state: String, data := {}) -> void:
+	anim.set("parameters/conditions/isWalking", true)
+	anim.set("parameters/conditions/isIdle", false)
+
 func _update(_delta: float) -> void:
 	if player.velocity.x == 0.0 and player.movement_inpus.x == 0.0:
 		transition_to.emit(IDLE)
@@ -19,4 +23,4 @@ func handle_movement(_delta: float) -> void:
 
 func handle_gravity(_delta: float) -> void:
 	player.velocity.y -= player.gravedad * _delta
-	player.velocity.y = max(player.velocity.y, -player.gravedad * 100.0)
+	player.velocity.y = max(player.velocity.y, -player.max_garvedad)

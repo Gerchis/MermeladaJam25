@@ -1,2 +1,2 @@
-Mobius-Shader:tlaverne, from https://godotshaders.com/shader/moebius-shader/
-VHS-Shader : LazarusOverlook from https://godotshaders.com/shader/vcr-analog-distortions/
+Mobius-Shader: tlaverne, from https://godotshaders.com/shader/moebius-shader/
+CRT-Shader: Lord0Sanz, from https://godotshaders.com/shader/crt-visual-shader-godot-4-0/

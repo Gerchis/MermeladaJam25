@@ -27,7 +27,7 @@ func handle_movement(_delta: float) -> void:
 
 func handle_gravity(_delta: float) -> void:
 	var actual_gravity = player.gravedad
-	if player.in_right_wall or player.in_left_wall:
+	if player.sliding_wall:
 		actual_gravity = player.gravedad * 0.1
 	player.velocity.y -= actual_gravity * _delta
-	player.velocity.y = max(player.velocity.y, -player.gravedad * 100.0)
+	player.velocity.y = max(player.velocity.y, -player.max_garvedad)

@@ -3,13 +3,15 @@ extends CharacterBody3D
 
 @export_category("Configuración del movimiento")
 @export var velocidad : float = 20.0
-@export var aceleracion : float = 500.0
+@export var aceleracion : float = 400.0
 
 @export_category("Configuración de salto")
-@export var gravedad : float = 200.0
-@export var fureza_salto : float = 50.0
+@export var gravedad : float = 150.0
+@export var max_garvedad : float = 200.0
+@export var fureza_salto : float = 40.0
 @export var aceleracion_aerea : float = 150.0
 @export var cantidad_saltos : int = 1
+@export var wall_jump_time : int = 0.1
 
 @export_category("Configuración de inputs")
 @export var input_buffer_time : float = 0.2
@@ -20,18 +22,24 @@ var jumps_count: int = 0
 var is_jumps_pressed: bool:
 	get:
 		return not jump_timer.is_stopped() and jumps_count < cantidad_saltos
+
+var sliding_wall: bool = false
 var in_right_wall: bool = false
-var in_left_wall: bool = true
+var in_left_wall: bool = false
+var facing_dir: int = 1
 
 @onready var jump_timer: Timer = %JumpTimer
 @onready var coyote_timer: Timer = %CoyoteTimer
 @onready var right_cast: ShapeCast3D = %RightCast
 @onready var left_cast: ShapeCast3D = %LeftCast
+@onready var wall_jump_timer: Timer = %WallJumpTimer
+@onready var model: Node3D = %Texturizado_Pretzel_Ojos_Final
 
 func _process(delta: float) -> void:
 	handle_movement_inputs()
 	handle_jump_input()
 	handle_jump_count_reset()
+	handle_facing()
 
 func  _physics_process(delta: float) -> void:
 	wall_check()
@@ -52,9 +60,22 @@ func _on_coyote_timer_timeout() -> void:
 		jumps_count += 1
 
 func wall_check() -> void:
-	in_left_wall = false
-	in_right_wall = false
-	if is_on_wall_only() and right_cast.is_colliding():
+	sliding_wall = false
+	if wall_jump_timer.is_stopped() or is_on_floor():
+		in_left_wall = false
+		in_right_wall = false
+	if is_on_wall_only() and right_cast.is_colliding() and velocity.y < 0.0:
+		sliding_wall = true
 		in_right_wall = true
-	elif is_on_wall_only() and left_cast.is_colliding():
+		wall_jump_timer.start(wall_jump_time)
+	elif is_on_wall_only() and left_cast.is_colliding() and velocity.y < 0.0:
+		sliding_wall = true
 		in_left_wall = true
+		wall_jump_timer.start(wall_jump_time)
+
+func handle_facing() -> void:
+	if velocity.x != 0.0:
+		facing_dir = sign(velocity.x)
+	
+	if model.rotation_degrees.y != 90.0 * facing_dir:
+		model.rotation_degrees.y = 90.0 * facing_dir

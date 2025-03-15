@@ -7,6 +7,8 @@ func _enter(previous_state: String, data := {}) -> void:
 	
 	if data.has("wall_jump_velocity"):
 		player.velocity.x = data["wall_jump_velocity"]
+		player.in_left_wall = false
+		player.in_right_wall = false
 	else:
 		player.jumps_count += 1
 	
@@ -33,7 +35,7 @@ func handle_movement(_delta: float) -> void:
 
 func handle_gravity(_delta: float) -> void:
 	player.velocity.y -= player.gravedad * _delta
-	player.velocity.y = max(player.velocity.y, -player.gravedad * 100.0)
+	player.velocity.y = max(player.velocity.y, -player.max_garvedad)
 
 func handle_jump_release() -> void:
 	if Input.is_action_just_released("jump") and player.velocity.y > player.fureza_salto * 0.2:
