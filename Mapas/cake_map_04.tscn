@@ -1,14 +1,150 @@
-[gd_scene load_steps=2 format=3 uid="uid://5b1n61jseau4"]
+[gd_scene load_steps=9 format=3 uid="uid://5b1n61jseau4"]
 
+[ext_resource type="Script" uid="uid://cr7xmobeatnuw" path="res://Mapas/map_variation.gd" id="1_1jitq"]
 [ext_resource type="MeshLibrary" uid="uid://bh4ribb1ymbnn" path="res://Recursos/Tilesets/Pastel.tres" id="1_nohxe"]
+[ext_resource type="ArrayMesh" uid="uid://deygoh4m6qcqh" path="res://Recursos/Mallas/Texturizado_Plataforma_Suelo_Pinchos_001_Cube_001.res" id="2_r5fev"]
+[ext_resource type="Script" uid="uid://dfyjdjh575a8m" path="res://Enitidades/MapAssets/dead_zone.gd" id="3_dv563"]
+[ext_resource type="PackedScene" uid="uid://cbdw4xwuk8ng5" path="res://Enitidades/MapAssets/ground_enemy.tscn" id="4_5uno4"]
 
-[node name="BaseMap" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5uno4"]
+size = Vector3(5.11871, 0.831055, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dv563"]
+size = Vector3(3.42459, 0.831055, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1jitq"]
+size = Vector3(1.57587, 0.831055, 1)
+
+[node name="BaseMap" type="Node3D" node_paths=PackedStringArray("dificulty_variations")]
+script = ExtResource("1_1jitq")
+dificulty_variations = [NodePath("EntrySpikes"), NodePath("Enemies"), NodePath("EndSpikes")]
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -1, -1)
 mesh_library = ExtResource("1_nohxe")
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 7, 24, 0, 4, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, -9, 0, 1, -8, 0, 1, -7, 0, 1, -6, 0, 1, -5, 0, 1, -4, 0, 1, -3, 0, 1, -2, 0, 1, -1, 0, 1, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -65533, 0, 1, -65532, 0, 1, -65531, 0, 1, -65530, 0, 1, -65529, 0, 1, -65528, 0, 1, -65527, 0, 1, -65526, 0, 1, -65525, 0, 1, -65524, 0, 1, -65523, 0, 1, -65522, 0, 1, -65521, 0, 1, -65520, 0, 1, -65519, 0, 1, -65518, 0, 1, -65517, 0, 12, -65516, 0, 11, -65512, 0, 5, -65511, 0, 1, -65510, 0, 1, -65509, 0, 1, -65508, 0, 1, -65507, 0, 1, -65506, 0, 1, 589816, 0, 8, 589817, 0, 10, 589818, 0, 10, 589819, 0, 10, 589820, 0, 10, 589821, 0, 10, 589822, 0, 10, 589823, 0, 10, 524288, 0, 10, 524289, 0, 10, 524290, 0, 10, 524291, 0, 10, 524292, 0, 10, 524293, 0, 10, 524294, 0, 10, 524295, 0, 10, 524281, 0, 8, 458746, 0, 8, 393211, 0, 8, 327676, 0, 8, 262141, 0, 8, 262142, 0, 10, 262143, 0, 10, 196608, 0, 10, 196609, 0, 10, 196610, 0, 10, 196611, 0, 10, 196612, 0, 10, 196613, 0, 10, 196614, 0, 10, 196615, 0, 10, 196616, 0, 9, 327677, 0, 10, 327678, 0, 10, 327679, 0, 10, 262144, 0, 10, 262145, 0, 10, 262146, 0, 10, 262147, 0, 10, 262148, 0, 10, 262149, 0, 10, 262150, 0, 10, 262151, 0, 10, 393212, 0, 10, 393213, 0, 10, 393214, 0, 10, 393215, 0, 10, 327680, 0, 10, 327681, 0, 10, 327682, 0, 10, 327683, 0, 10, 327684, 0, 10, 327685, 0, 10, 327686, 0, 10, 327687, 0, 10, 458747, 0, 10, 458748, 0, 10, 458749, 0, 10, 458750, 0, 10, 458751, 0, 10, 393216, 0, 10, 393217, 0, 10, 393218, 0, 10, 393219, 0, 10, 393220, 0, 10, 393221, 0, 10, 393222, 0, 10, 393223, 0, 10, 524282, 0, 10, 524283, 0, 10, 524284, 0, 10, 524285, 0, 10, 524286, 0, 10, 524287, 0, 10, 458752, 0, 10, 458753, 0, 10, 458754, 0, 10, 458755, 0, 10, 458756, 0, 10, 458757, 0, 10, 458758, 0, 10, 458759, 0, 10, 458760, 0, 9, 524296, 0, 9, 393224, 0, 9, 327688, 0, 9, 262152, 0, 9, 262155, 0, 8, 262156, 0, 10, 262157, 0, 10, 262158, 0, 10, 262159, 0, 9, 196621, 0, 4, 196622, 0, 0, 196623, 0, 0, 196624, 0, 7, 131088, 0, 6, 131085, 0, 131078, 131086, 0, 3, 131087, 0, 3, 65552, 0, 12, 65551, 0, 1, 65550, 0, 1, 65549, 0, 5, 131089, 0, 8, 65553, 0, 8, 65554, 0, 9, 65560, 0, 8, 131096, 0, 8, 196632, 0, 8, 196633, 0, 9, 131098, 0, 9, 65563, 0, 9, 65561, 0, 10, 65562, 0, 10, 131097, 0, 10, 262168, 0, 9, 262167, 0, 8, 327702, 0, 8, 393237, 0, 8, 393238, 0, 9, 327703, 0, 9, 458773, 0, 9, 458772, 0, 8, 524308, 0, 11)
+"cells": PackedInt32Array(65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 7, 24, 0, 4, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, -9, 0, 1, -8, 0, 1, -7, 0, 1, -6, 0, 1, -5, 0, 1, -4, 0, 1, -3, 0, 1, -2, 0, 1, -1, 0, 1, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -65533, 0, 1, -65532, 0, 1, -65531, 0, 1, -65530, 0, 1, -65529, 0, 1, -65528, 0, 1, -65527, 0, 1, -65526, 0, 1, -65525, 0, 1, -65524, 0, 1, -65523, 0, 1, -65522, 0, 1, -65521, 0, 1, -65520, 0, 1, -65519, 0, 1, -65518, 0, 1, -65517, 0, 12, -65516, 0, 11, -65512, 0, 5, -65511, 0, 1, -65510, 0, 1, -65509, 0, 1, -65508, 0, 1, -65507, 0, 1, -65506, 0, 1, 589816, 0, 8, 589817, 0, 10, 589818, 0, 10, 589819, 0, 10, 589820, 0, 10, 589821, 0, 10, 589822, 0, 10, 589823, 0, 10, 524288, 0, 10, 524289, 0, 10, 524290, 0, 10, 524291, 0, 10, 524292, 0, 10, 524293, 0, 10, 524294, 0, 10, 524295, 0, 10, 524281, 0, 8, 458746, 0, 8, 393211, 0, 8, 327676, 0, 8, 262141, 0, 8, 262142, 0, 10, 262143, 0, 10, 196608, 0, 10, 196609, 0, 10, 196610, 0, 10, 196611, 0, 10, 196612, 0, 10, 196613, 0, 10, 196614, 0, 10, 196615, 0, 10, 196616, 0, 9, 327677, 0, 10, 327678, 0, 10, 327679, 0, 10, 262144, 0, 10, 262145, 0, 10, 262146, 0, 10, 262147, 0, 10, 262148, 0, 10, 262149, 0, 10, 262150, 0, 10, 262151, 0, 10, 393212, 0, 10, 393213, 0, 10, 393214, 0, 10, 393215, 0, 10, 327680, 0, 10, 327681, 0, 10, 327682, 0, 10, 327683, 0, 10, 327684, 0, 10, 327685, 0, 10, 327686, 0, 10, 327687, 0, 10, 458747, 0, 10, 458748, 0, 10, 458749, 0, 10, 458750, 0, 10, 458751, 0, 10, 393216, 0, 10, 393217, 0, 10, 393218, 0, 10, 393219, 0, 10, 393220, 0, 10, 393221, 0, 10, 393222, 0, 10, 393223, 0, 10, 524282, 0, 10, 524283, 0, 10, 524284, 0, 10, 524285, 0, 10, 524286, 0, 10, 524287, 0, 10, 458752, 0, 10, 458753, 0, 10, 458754, 0, 10, 458755, 0, 10, 458756, 0, 10, 458757, 0, 10, 458758, 0, 10, 458759, 0, 10, 458760, 0, 9, 524296, 0, 9, 393224, 0, 9, 327688, 0, 9, 262152, 0, 9, 262155, 0, 8, 262156, 0, 10, 262157, 0, 10, 262158, 0, 10, 262159, 0, 9, 196621, 0, 4, 196622, 0, 0, 196623, 0, 0, 196624, 0, 7, 131088, 0, 6, 131085, 0, 131078, 131086, 0, 3, 131087, 0, 3, 65552, 0, 12, 65551, 0, 1, 65550, 0, 1, 65549, 0, 5, 131089, 0, 11, 65553, 0, 8, 65554, 0, 9, 65560, 0, 8, 131096, 0, 8, 196632, 0, 8, 196633, 0, 9, 131098, 0, 9, 65563, 0, 9, 65561, 0, 10, 65562, 0, 10, 131097, 0, 10, 262168, 0, 9, 262167, 0, 8, 327702, 0, 8, 393237, 0, 8, 393238, 0, 9, 327703, 0, 9, 458773, 0, 9, 458772, 0, 8, 524308, 0, 11)
 }
-metadata/_editor_floor_ = Vector3(0, 8, 0)
+metadata/_editor_floor_ = Vector3(0, 5, 0)
+
+[node name="EntrySpikes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 12.6148, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 13.628, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 14.6271, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 15.6404, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 16.6202, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 17.6335, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 26.2761, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 27.2893, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 28.2884, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="EntrySpikes"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 29.3017, 4.01697, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="EndSpikes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EndSpikes"]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 67.272, 7.96025, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="EndSpikes"]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 66.2588, 7.96025, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="EndSpikes"]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 69.3377, 5.96859, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="EndSpikes"]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 68.3244, 5.96859, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="EndSpikes"]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 71.3295, 3.97313, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="EndSpikes"]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 70.3162, 3.97313, 0)
+mesh = ExtResource("2_r5fev")
+
+[node name="DeadZone" type="Area3D" parent="EndSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2324, 3.71249, 0)
+monitorable = false
+script = ExtResource("3_dv563")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndSpikes/DeadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.268878, -0.0844727, 0)
+shape = SubResource("BoxShape3D_5uno4")
+
+[node name="DeadZone2" type="Area3D" parent="EndSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0804, 3.71249, 0)
+monitorable = false
+script = ExtResource("3_dv563")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndSpikes/DeadZone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578182, -0.0844727, 0)
+shape = SubResource("BoxShape3D_dv563")
+
+[node name="DeadZone3" type="Area3D" parent="EndSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.158, 8.4953, 0)
+monitorable = false
+script = ExtResource("3_dv563")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndSpikes/DeadZone3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.346176, -0.0844727, 0)
+shape = SubResource("BoxShape3D_1jitq")
+
+[node name="DeadZone4" type="Area3D" parent="EndSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.104, 6.50657, 0)
+monitorable = false
+script = ExtResource("3_dv563")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndSpikes/DeadZone4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.346176, -0.0844727, 0)
+shape = SubResource("BoxShape3D_1jitq")
+
+[node name="DeadZone5" type="Area3D" parent="EndSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.1141, 4.48576, 0)
+monitorable = false
+script = ExtResource("3_dv563")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndSpikes/DeadZone5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.346176, -0.0844727, 0)
+shape = SubResource("BoxShape3D_1jitq")
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="GroundEnemy" parent="Enemies" instance=ExtResource("4_5uno4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.4006, -0.0248017, 0)
+
+[node name="GroundEnemy2" parent="Enemies" instance=ExtResource("4_5uno4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4378, 7.95824, 0)

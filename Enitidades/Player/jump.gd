@@ -4,7 +4,7 @@ extends PlayerState
 func _enter(previous_state: String, data := {}) -> void:
 	if not player.jump_timer.is_stopped():
 		player.jump_timer.stop()
-	
+	player.jump_cooldown.start()
 	if data.has("wall_jump_velocity"):
 		player.velocity.x = data["wall_jump_velocity"]
 		player.in_left_wall = false

@@ -738,7 +738,7 @@ states/Start/position = Vector2(114, 165)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_kfkfy"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ya37j"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_8e2pe"), "Landing", "Idle", SubResource("AnimationNodeStateMachineTransition_fobq8"), "Landing", "Run", SubResource("AnimationNodeStateMachineTransition_sudm8"), "MidAir", "Landing", SubResource("AnimationNodeStateMachineTransition_qvde8"), "Run", "MidAir", SubResource("AnimationNodeStateMachineTransition_s3cgy"), "Idle", "MidAir", SubResource("AnimationNodeStateMachineTransition_j7yq1"), "Landing", "MidAir", SubResource("AnimationNodeStateMachineTransition_es83q"), "Idle", "Escalar", SubResource("AnimationNodeStateMachineTransition_nv5ms"), "Run", "Escalar", SubResource("AnimationNodeStateMachineTransition_yl6w5"), "MidAir", "Escalar", SubResource("AnimationNodeStateMachineTransition_ptvf8"), "Escalar", "MidAir", SubResource("AnimationNodeStateMachineTransition_gyf0n")]
 graph_offset = Vector2(46, 40)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_o33kl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -834,7 +834,7 @@ bones/5/name = "j_mano_L"
 bones/5/parent = 0
 bones/5/rest = Transform3D(-0.273236, -3.635e-07, -0.961947, 0.961947, 2.06748e-08, -0.273236, 1.19209e-07, -1, 3.44019e-07, -0.0271143, -0.0381432, -1.37383)
 bones/5/enabled = true
-bones/5/position = Vector3(-0.0621161, 0.16295, -1.13043)
+bones/5/position = Vector3(-0.0425367, 0.165559, -1.1305)
 bones/5/rotation = Quaternion(-0.00046508, -0.467951, 0.498525, 0.729722)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "j_dedo_indice_001_L"
@@ -918,7 +918,7 @@ bones/17/name = "j_mano_R"
 bones/17/parent = 0
 bones/17/rest = Transform3D(0.273236, 3.67888e-07, -0.961947, -0.961947, -5.04098e-08, -0.273236, -1.49012e-07, 1, 3.40115e-07, -0.0271132, -0.0381431, 1.37383)
 bones/17/enabled = true
-bones/17/position = Vector3(-0.0485007, 0.19695, 1.10967)
+bones/17/position = Vector3(-0.0394947, 0.194045, 1.11088)
 bones/17/rotation = Quaternion(0.498525, -0.729722, -0.000465244, 0.467952)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "j_dedo_indice_001_R"
@@ -1002,7 +1002,7 @@ bones/29/name = "j_cuerpo"
 bones/29/parent = 0
 bones/29/rest = Transform3D(0.568861, -0.822433, 4.21347e-07, 0.822433, 0.568861, -1.24754e-07, -1.37087e-07, 4.17498e-07, 1, 0.328973, -0.227544, -1.66999e-07)
 bones/29/enabled = true
-bones/29/position = Vector3(0.268116, -0.185451, -1.42857e-07)
+bones/29/position = Vector3(0.272566, -0.188529, -1.44643e-07)
 bones/29/rotation = Quaternion(-0.159914, 0.34269, 0.39074, 0.839234)
 bones/29/scale = Vector3(1, 1, 1)
 bones/30/name = "j_boca"
@@ -1156,5 +1156,10 @@ parameters/conditions/isIdle = false
 parameters/conditions/isWalking = false
 parameters/Landing/TimeScale/scale = 3.0
 parameters/Run/TimeScale/scale = 2.0
+
+[node name="JumpCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

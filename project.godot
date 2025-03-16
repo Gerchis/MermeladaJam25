@@ -19,6 +19,10 @@ run/main_scene="uid://ck1hlvv08ijcx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Managers/game_manager.gd"
+
 [display]
 
 window/size/viewport_width=1536
@@ -31,9 +35,18 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Enitidades/": "red",
+"res://Managers/": "gray",
 "res://Mapas/": "orange",
 "res://Recursos/": "green"
 }
+
+[global_group]
+
+Player=""
+
+[gui]
+
+theme/custom_font="uid://cub0bo8nv3i4s"
 
 [input]
 

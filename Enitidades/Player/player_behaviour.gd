@@ -21,7 +21,7 @@ var movement_inpus : Vector2 = Vector2.ZERO
 var jumps_count: int = 0
 var is_jumps_pressed: bool:
 	get:
-		return not jump_timer.is_stopped() and jumps_count < cantidad_saltos
+		return not jump_timer.is_stopped() and jumps_count < cantidad_saltos and jump_cooldown.is_stopped() 
 
 var sliding_wall: bool = false
 var in_right_wall: bool = false
@@ -34,6 +34,7 @@ var facing_dir: int = 1
 @onready var left_cast: ShapeCast3D = %LeftCast
 @onready var wall_jump_timer: Timer = %WallJumpTimer
 @onready var model: Node3D = %Texturizado_Pretzel_Ojos_Final
+@onready var jump_cooldown: Timer = %JumpCooldown
 
 func _process(delta: float) -> void:
 	handle_movement_inputs()
@@ -52,7 +53,7 @@ func handle_jump_input() -> void:
 		jump_timer.start(input_buffer_time)
 
 func handle_jump_count_reset() -> void:
-	if is_on_floor() and jumps_count != 0:
+	if is_on_floor() and jumps_count != 0 and jump_cooldown.is_stopped():
 		jumps_count = 0
 
 func _on_coyote_timer_timeout() -> void:
