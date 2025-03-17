@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d4bx2odg6wylb"]
+
+[resource]
+resource_name = "m_Pan"
+cull_mode = 2
+albedo_color = Color(0.63, 0.4683, 0.1449, 1)
+roughness = 0.5

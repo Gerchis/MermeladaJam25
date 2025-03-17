@@ -1,6 +1,9 @@
 class_name PlayerBehaviour
 extends CharacterBody3D
 
+const SALTO_PERSONAJE_001 = preload("res://Recursos/Musica/Sonidos/Pj/Saltar/Salto_Personaje_001.ogg")
+const AUDIO_MORIR_PJ_001 = preload("res://Recursos/Musica/Sonidos/Pj/Morir/Audio_Morir_Pj_001.ogg")
+
 @export_category("Configuración del movimiento")
 @export var velocidad : float = 20.0
 @export var aceleracion : float = 400.0
@@ -35,6 +38,7 @@ var facing_dir: int = 1
 @onready var wall_jump_timer: Timer = %WallJumpTimer
 @onready var model: Node3D = %Texturizado_Pretzel_Ojos_Final
 @onready var jump_cooldown: Timer = %JumpCooldown
+@onready var audio_pj: AudioStreamPlayer = %Audio_Pj
 
 func _process(delta: float) -> void:
 	handle_movement_inputs()

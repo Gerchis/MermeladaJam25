@@ -25,6 +25,8 @@ func apear() -> void:
 	if GameManager.run_score > GameManager.stored_data.highscore:
 		GameManager.stored_data.highscore = GameManager.run_score
 	
+	AudioManager.play_background_music(AudioManager.MUSICA_PANTALLA_FINAL_001)
+	
 	show()
 	var tween = create_tween()
 	tween.tween_property(self, "position", Vector2.ZERO, 0.2)
@@ -45,6 +47,7 @@ func _on_return_button_pressed() -> void:
 	main_menu.game_scene.queue_free()
 	await main_menu.game_scene.tree_exited
 	main_menu.show()
+	AudioManager.play_background_music(AudioManager.MAIN_MENU_BSO_001)
 	hide()
 	main_menu.play_button.grab_focus()
 

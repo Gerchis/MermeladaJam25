@@ -18,13 +18,16 @@ func _enter(previous_state: String, data := {}) -> void:
 	anim.set("parameters/conditions/isIdle", false)
 	anim.set("parameters/conditions/inFloor", false)
 	anim.set("parameters/conditions/isFalling", true)
+	
+	player.audio_pj.stream = player.SALTO_PERSONAJE_001
+	player.audio_pj.play()
 
 func _update(_delta: float) -> void:
-	if player.is_on_floor() and player.velocity.x == 0.0:
-		transition_to.emit(IDLE)
-	elif player.is_on_floor() and player.velocity.x != 0.0:
-		transition_to.emit(WALK)
-	elif player.velocity.y < 0.0:
+	#if player.is_on_floor() and player.velocity.x == 0.0:
+		#transition_to.emit(IDLE)
+	#if player.is_on_floor() and player.velocity.x != 0.0:
+		#transition_to.emit(WALK)
+	if player.velocity.y <= 0.0:
 		transition_to.emit(FALL)
 
 func _physics_update(_delta: float) -> void:

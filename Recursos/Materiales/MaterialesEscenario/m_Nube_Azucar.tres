@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bmpjhjckqeti8"]
+
+[resource]
+resource_name = "m_Nube_Azucar"
+cull_mode = 2
+albedo_color = Color(0.63, 0.63, 0.63, 1)
+roughness = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bk5k783km8q6j"]
+[gd_scene load_steps=35 format=3 uid="uid://bk5k783km8q6j"]
 
 [ext_resource type="PackedScene" uid="uid://ce4cpdx6ya06n" path="res://Mapas/tutorial_map.tscn" id="1_fsu5c"]
 [ext_resource type="Script" uid="uid://bxhcvsgkybdan" path="res://Mapas/map_generation.gd" id="1_i3hsw"]
@@ -18,11 +18,43 @@
 [ext_resource type="Script" uid="uid://dapcccx6kjxpl" path="res://Enitidades/Chaser/chaser.gd" id="12_7wn5i"]
 [ext_resource type="Script" uid="uid://dfyjdjh575a8m" path="res://Enitidades/MapAssets/dead_zone.gd" id="17_kcv3j"]
 
+[sub_resource type="Curve" id="Curve_kcv3j"]
+_data = [Vector2(0.207254, 0.0786518), 0.0, 0.0, 0, 0, Vector2(0.621762, 0.573034), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rgi0n"]
+_data = [Vector2(0.181347, 0), 0.0, 0.0, 0, 0, Vector2(0.554404, 0.58427), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xvo1x"]
+_data = [Vector2(0.212435, 0), 0.0, 0.0, 0, 0, Vector2(0.533679, 0.786517), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_33rjk"]
+curve_x = SubResource("Curve_kcv3j")
+curve_y = SubResource("Curve_rgi0n")
+curve_z = SubResource("Curve_xvo1x")
+
 [sub_resource type="Environment" id="Environment_m0jot"]
 background_mode = 3
-background_color = Color(0.957833, 0.77, 1, 1)
+background_color = Color(0.845875, 0.987419, 0.683626, 1)
+background_energy_multiplier = 3.61
 ambient_light_source = 2
-ambient_light_color = Color(0.67, 0.67, 0.67, 1)
+ambient_light_color = Color(0.987501, 0.924467, 0.94388, 1)
+ambient_light_energy = 0.71
+tonemap_exposure = 0.57
+ssao_enabled = true
+ssao_radius = 11.53
+ssao_intensity = 16.0
+ssao_power = 0.284197
+ssao_detail = 0.0
+ssao_horizon = 0.4
+ssao_sharpness = 0.77
+volumetric_fog_density = 0.005
+adjustment_brightness = 0.79
+adjustment_contrast = 1.15
+adjustment_saturation = 0.86
+adjustment_color_correction = SubResource("CurveXYZTexture_33rjk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3px8u"]
 shader = ExtResource("7_llbv8")
@@ -102,12 +134,21 @@ game_maps = Array[PackedScene]([ExtResource("3_7wn5i"), ExtResource("4_t6034"), 
 [node name="Player" parent="." instance=ExtResource("2_05nn2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5695, 1, 0)
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.965957, 0.258701, 0, -0.258701, 0.965957, -4.32899, 9.1652, 27.2018)
+current = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m0jot")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707009, 0.499393, -0.500743, 0.000787331, 0.707504, 0.706709, 0.707204, -0.500044, 0.499819, 0, 6.43079, 0)
+transform = Transform3D(0.993909, 0.110015, 0.00637781, -0.0416065, 0.321036, 0.946153, 0.102043, -0.940655, 0.323658, 0, 6.43079, 0)
+light_color = Color(0.936965, 0.949643, 0.678777, 1)
+light_energy = 2.67
+light_specular = 2.391
 shadow_enabled = true
+shadow_transmittance_bias = -16.0
+shadow_opacity = 0.91
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

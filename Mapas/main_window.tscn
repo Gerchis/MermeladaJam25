@@ -1,14 +1,19 @@
-[gd_scene load_steps=42 format=3 uid="uid://ck1hlvv08ijcx"]
+[gd_scene load_steps=47 format=3 uid="uid://ck1hlvv08ijcx"]
 
 [ext_resource type="Script" uid="uid://cy8v28ymthxs5" path="res://Enitidades/MainMenu/main_menu.gd" id="2_857sk"]
 [ext_resource type="Shader" uid="uid://cap2hhowunnuc" path="res://Recursos/Shaders/crt_effect.gdshader" id="2_e4xe7"]
 [ext_resource type="Texture2D" uid="uid://cvs8v3bga50wn" path="res://Recursos/Sprites/SpritSheet_BTNS_MainMenu_001.png" id="2_ktffj"]
 [ext_resource type="Texture2D" uid="uid://b2xh7op4jrjvg" path="res://Recursos/Sprites/MainMenu_001.png" id="3_ktffj"]
+[ext_resource type="AudioStream" uid="uid://dde16t0y524ji" path="res://Recursos/Musica/Sonidos/Btn/menu_click_sound_002.ogg" id="4_2jqaf"]
 [ext_resource type="Texture2D" uid="uid://jdb7ju33qa0w" path="res://Recursos/Sprites/CupcakeMenuReecuentodeSprinkles.png" id="5_itgvu"]
 [ext_resource type="ArrayMesh" uid="uid://jt48q46al81u" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_008.res" id="6_rc3av"]
+[ext_resource type="Texture2D" uid="uid://bb5fl1mw55f3a" path="res://Recursos/Sprites/Menu_Creditos_001.png" id="6_rhyrl"]
 [ext_resource type="Script" uid="uid://cc1ud4sjowivc" path="res://Mapas/score_screen.gd" id="6_sdjnt"]
+[ext_resource type="Script" uid="uid://dalsn2j6jep50" path="res://Mapas/volume_controller.gd" id="7_m0cbc"]
+[ext_resource type="Texture2D" uid="uid://bsawgvyq8xr55" path="res://Recursos/Sprites/SpritSheet_BTNS_SinVolumen_001.png" id="7_rhyrl"]
 [ext_resource type="ArrayMesh" uid="uid://bsp621tw8mafi" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_009.res" id="7_sdjnt"]
 [ext_resource type="ArrayMesh" uid="uid://b2u8aqcfnps1v" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_010.res" id="8_46obj"]
+[ext_resource type="Script" uid="uid://dd83sp4bgt2hd" path="res://Mapas/check_filter.gd" id="9_iuxkb"]
 [ext_resource type="ArrayMesh" uid="uid://b5gyy8jbwv46" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_011.res" id="9_x3cf6"]
 [ext_resource type="ArrayMesh" uid="uid://ikr4qaqi00nd" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_012.res" id="10_2cpx3"]
 [ext_resource type="ArrayMesh" uid="uid://cfkifm0l2ljm0" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_013.res" id="11_sgajv"]
@@ -16,6 +21,7 @@
 [ext_resource type="Shader" uid="uid://beautggkve2un" path="res://Recursos/Shaders/comic_effect.gdshader" id="14_46obj"]
 [ext_resource type="ArrayMesh" uid="uid://c8lay2apopqot" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_005.res" id="15_x3cf6"]
 [ext_resource type="Texture2D" uid="uid://c4lb4vknjopqv" path="res://Recursos/Sprites/Btn_002.png" id="16_2cpx3"]
+[ext_resource type="FontFile" uid="uid://be8l5h7sh5kif" path="res://Recursos/Fonts/Pixellari.ttf" id="16_qhgqt"]
 [ext_resource type="Texture2D" uid="uid://c6ew5y5asexm0" path="res://Recursos/Sprites/Btn_001.png" id="17_sgajv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_857sk"]
@@ -59,24 +65,24 @@ shader = ExtResource("2_e4xe7")
 shader_parameter/overlay = false
 shader_parameter/resolution = Vector2(1280, 960)
 shader_parameter/brightness = 1.4
-shader_parameter/scanlines_opacity = 0.1
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.01
+shader_parameter/scanlines_opacity = 0.034
+shader_parameter/scanlines_width = 0.031
+shader_parameter/grille_opacity = 0.0
 shader_parameter/roll = true
 shader_parameter/roll_speed = -4.0
 shader_parameter/roll_size = 20.0
 shader_parameter/roll_variation = 1.8
 shader_parameter/distort_intensity = 0.005
 shader_parameter/aberration = 4.75e-08
-shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_opacity = 0.2
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
 shader_parameter/pixelate = false
 shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.25
+shader_parameter/warp_amount = 1.0
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 1.0
-shader_parameter/vignette_opacity = 0.772
+shader_parameter/vignette_opacity = 0.401
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_857sk"]
 bg_color = Color(0.6, 0.5395, 0.27, 0.545098)
@@ -84,64 +90,6 @@ bg_color = Color(0.6, 0.5395, 0.27, 0.545098)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rc3av"]
 atlas = ExtResource("2_ktffj")
 region = Rect2(80, 80, 1072, 1040)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sdjnt"]
-atlas = ExtResource("2_ktffj")
-region = Rect2(1352, 120, 128, 128)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maokc"]
-bg_color = Color(0.313726, 0.196078, 0.027451, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-expand_margin_left = 5.0
-expand_margin_top = 25.0
-expand_margin_bottom = 25.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itgvu"]
-bg_color = Color(0.85, 0.6868, 0.306, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-expand_margin_top = 20.0
-expand_margin_bottom = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0s2n"]
-render_priority = 0
-shader = ExtResource("14_46obj")
-shader_parameter/zNear = 0.05
-shader_parameter/zFar = 100.0
-shader_parameter/outlineThickness = 0.5
-shader_parameter/outlineColor = Color(0.144063, 0.144063, 0.144063, 1)
-shader_parameter/wiggleFrequency = 0.08
-shader_parameter/wiggleAmplitude = 2.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_x3cf6"]
-material = SubResource("ShaderMaterial_e0s2n")
-flip_faces = true
-size = Vector2(2, 2)
-
-[sub_resource type="Environment" id="Environment_sdjnt"]
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.22
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2cpx3"]
-particle_flag_rotate_y = true
-emission_shape = 3
-emission_box_extents = Vector3(3, 1, 1)
-angle_min = 1.07288e-05
-angle_max = 360.0
-gravity = Vector3(0, -5, 0)
-scale_min = 0.5
-hue_variation_min = -1.0
-hue_variation_max = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_x3cf6"]
-font_size = 50
-font_color = Color(0.03, 0.03, 0.03, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgajv"]
 content_margin_left = 10.0
@@ -196,6 +144,55 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuxkb"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.929412, 0.741176, 0.415686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iuxkb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0s2n"]
+render_priority = 0
+shader = ExtResource("14_46obj")
+shader_parameter/zNear = 0.05
+shader_parameter/zFar = 100.0
+shader_parameter/outlineThickness = 0.5
+shader_parameter/outlineColor = Color(0.144063, 0.144063, 0.144063, 1)
+shader_parameter/wiggleFrequency = 0.08
+shader_parameter/wiggleAmplitude = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_x3cf6"]
+material = SubResource("ShaderMaterial_e0s2n")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="Environment" id="Environment_sdjnt"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.22
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2cpx3"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.5
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3cf6"]
+font = ExtResource("16_qhgqt")
+font_size = 50
+font_color = Color(0.03, 0.03, 0.03, 1)
 
 [node name="MainWindow" type="Control"]
 layout_mode = 3
@@ -265,7 +262,11 @@ texture_focused = SubResource("AtlasTexture_c7rpa")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="Audio_Btn" type="AudioStreamPlayer" parent="MainMenu"]
+stream = ExtResource("4_2jqaf")
+
 [node name="Effect" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="ColorRect" type="ColorRect" parent="Effect"]
 material = SubResource("ShaderMaterial_857sk")
@@ -276,7 +277,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Options" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -286,35 +288,173 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_857sk")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="Options"]
 custom_minimum_size = Vector2(800, 800)
 layout_mode = 2
 texture = SubResource("AtlasTexture_rc3av")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/TextureRect"]
+[node name="ReturnButton" type="Button" parent="Options/TextureRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = -131.0
+offset_right = 314.0
+offset_bottom = -59.0
+grow_vertical = 0
+scale = Vector2(0.995264, 1.00768)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 43
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgajv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_sgajv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qhgqt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nnhk7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jqaf")
+text = "Volver"
+icon = ExtResource("16_2cpx3")
+icon_alignment = 2
+
+[node name="VolumeController" type="PanelContainer" parent="Options/TextureRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -196.0
-offset_top = -64.0
-offset_right = 561.0
-offset_bottom = 64.0
+offset_left = -159.0
+offset_top = -71.0
+offset_right = 159.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.345, 0.345)
-theme_override_icons/grabber = SubResource("AtlasTexture_sdjnt")
-theme_override_icons/grabber_highlight = SubResource("AtlasTexture_sdjnt")
-theme_override_styles/slider = SubResource("StyleBoxFlat_maokc")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_itgvu")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_itgvu")
-value = 50.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+script = ExtResource("7_m0cbc")
+panel_container = SubResource("StyleBoxFlat_iuxkb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/TextureRect/VolumeController"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="0" type="TextureButton" parent="Options/TextureRect/VolumeController/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_rhyrl")
+
+[node name="20" type="TextureButton" parent="Options/TextureRect/VolumeController/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_rhyrl")
+
+[node name="40" type="TextureButton" parent="Options/TextureRect/VolumeController/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_rhyrl")
+
+[node name="60" type="TextureButton" parent="Options/TextureRect/VolumeController/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_rhyrl")
+
+[node name="80" type="TextureButton" parent="Options/TextureRect/VolumeController/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_rhyrl")
+
+[node name="100" type="TextureButton" parent="Options/TextureRect/VolumeController/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_rhyrl")
+
+[node name="CheckFilter" type="PanelContainer" parent="Options/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 136.0
+offset_top = 105.0
+offset_right = 184.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_iuxkb")
+script = ExtResource("9_iuxkb")
+panel_container = SubResource("StyleBoxFlat_iuxkb")
+
+[node name="Check" type="TextureButton" parent="Options/TextureRect/CheckFilter"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_rhyrl")
+stretch_mode = 0
+
+[node name="Credits" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_857sk")
+
+[node name="TextureRect" type="TextureRect" parent="Credits"]
+layout_mode = 2
+texture = ExtResource("6_rhyrl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CreditsReturnButton" type="Button" parent="Credits/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = -131.0
+offset_right = 314.0
+offset_bottom = -59.0
+grow_vertical = 0
+scale = Vector2(0.995264, 1.00768)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 43
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgajv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_sgajv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qhgqt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nnhk7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jqaf")
+text = "Volver"
+icon = ExtResource("16_2cpx3")
+icon_alignment = 2
 
 [node name="ScoreScreen" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -339,7 +479,7 @@ own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1536, 864)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Node3D" type="Node3D" parent="ScoreScreen/SubViewportContainer/SubViewport"]
 
@@ -411,10 +551,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -287.5
-offset_top = -814.0
-offset_right = 287.5
-offset_bottom = -742.0
+offset_left = -287.0
+offset_top = -778.0
+offset_right = 288.0
+offset_bottom = -706.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "FIN DE PARTIDA"
@@ -430,9 +570,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -768.0
-offset_top = -350.0
+offset_top = -270.0
 offset_right = 769.0
-offset_bottom = -278.0
+offset_bottom = -198.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Puntuación: "
@@ -448,9 +588,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -768.0
-offset_top = -276.0
+offset_top = -196.0
 offset_right = 769.0
-offset_bottom = -204.0
+offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Mejor Puntuación: 1478646"
@@ -463,11 +603,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 122.0
-offset_top = -161.0
-offset_right = 357.0
-offset_bottom = -89.0
+offset_left = 127.0
+offset_top = -107.0
+offset_right = 362.0
+offset_bottom = -35.0
 grow_vertical = 0
+scale = Vector2(0.995264, 1.00768)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -492,12 +633,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -499.0
-offset_top = -157.0
-offset_right = -164.0
-offset_bottom = -85.0
+offset_left = -494.0
+offset_top = -103.0
+offset_right = -159.0
+offset_bottom = -31.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.995264, 1.00768)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -512,6 +654,25 @@ text = "Reintentar"
 icon = ExtResource("17_sgajv")
 icon_alignment = 2
 
+[node name="Gameplay_BSO" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -7.0
+
 [connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/CreditsButton" to="MainMenu" method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Options/TextureRect/ReturnButton" to="MainMenu" method="_on_return_button_pressed"]
+[connection signal="focus_entered" from="Options/TextureRect/VolumeController" to="Options/TextureRect/VolumeController" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Options/TextureRect/VolumeController" to="Options/TextureRect/VolumeController" method="_on_focus_exited"]
+[connection signal="pressed" from="Options/TextureRect/VolumeController/HBoxContainer/0" to="Options/TextureRect/VolumeController" method="_on_0_pressed"]
+[connection signal="pressed" from="Options/TextureRect/VolumeController/HBoxContainer/20" to="Options/TextureRect/VolumeController" method="_on_20_pressed"]
+[connection signal="pressed" from="Options/TextureRect/VolumeController/HBoxContainer/40" to="Options/TextureRect/VolumeController" method="_on_40_pressed"]
+[connection signal="pressed" from="Options/TextureRect/VolumeController/HBoxContainer/60" to="Options/TextureRect/VolumeController" method="_on_60_pressed"]
+[connection signal="pressed" from="Options/TextureRect/VolumeController/HBoxContainer/80" to="Options/TextureRect/VolumeController" method="_on_80_pressed"]
+[connection signal="pressed" from="Options/TextureRect/VolumeController/HBoxContainer/100" to="Options/TextureRect/VolumeController" method="_on_100_pressed"]
+[connection signal="focus_entered" from="Options/TextureRect/CheckFilter" to="Options/TextureRect/CheckFilter" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Options/TextureRect/CheckFilter" to="Options/TextureRect/CheckFilter" method="_on_focus_exited"]
+[connection signal="pressed" from="Options/TextureRect/CheckFilter/Check" to="Options/TextureRect/CheckFilter" method="_on_check_pressed"]
+[connection signal="pressed" from="Credits/TextureRect/CreditsReturnButton" to="MainMenu" method="_on_return_button_pressed"]
 [connection signal="pressed" from="ScoreScreen/ReturnButton" to="ScoreScreen" method="_on_return_button_pressed"]
 [connection signal="pressed" from="ScoreScreen/RetryButton" to="ScoreScreen" method="_on_retry_button_pressed"]

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://1xab2hvfhfah"]
+
+[resource]
+resource_name = "Palo_Helado"
+cull_mode = 2
+albedo_color = Color(0.63, 0.470505, 0.3213, 1)
+roughness = 0.5

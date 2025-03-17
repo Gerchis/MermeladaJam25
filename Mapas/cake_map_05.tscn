@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2d61x7lnxput"]
+[gd_scene load_steps=19 format=3 uid="uid://d2d61x7lnxput"]
 
 [ext_resource type="Script" uid="uid://cr7xmobeatnuw" path="res://Mapas/map_variation.gd" id="1_bxys6"]
 [ext_resource type="MeshLibrary" uid="uid://bh4ribb1ymbnn" path="res://Recursos/Tilesets/Pastel.tres" id="1_y3e30"]
@@ -7,6 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://cbdw4xwuk8ng5" path="res://Enitidades/MapAssets/ground_enemy.tscn" id="4_4hnx1"]
 [ext_resource type="PackedScene" uid="uid://cwqptqim1mo5y" path="res://Enitidades/MapAssets/flying_enemy.tscn" id="5_lilul"]
 [ext_resource type="ArrayMesh" uid="uid://pcd22u1kes2" path="res://Recursos/Mallas/Texturizado_Suelo_Gelatina_002_Cube_001.res" id="6_4yesi"]
+[ext_resource type="PackedScene" uid="uid://d0qwbmqfi4vqc" path="res://Enitidades/MapAssets/sprinkles.tscn" id="8_a2l1g"]
+[ext_resource type="PackedScene" uid="uid://bf50pkkkqbae3" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Tostada_001.glb" id="9_24d5c"]
+[ext_resource type="PackedScene" uid="uid://colqspa10kp65" path="res://Recursos/Modelos/ModelosEscenario/Plataforma_Barquillo.glb" id="10_6ejra"]
+[ext_resource type="PackedScene" uid="uid://c800d0kaewukt" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Magnum_001.glb" id="11_5fx8u"]
+[ext_resource type="PackedScene" uid="uid://bh66su8f5e33h" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Osito_Gominola_001.glb" id="12_nxlj1"]
+[ext_resource type="PackedScene" uid="uid://mu0ft5je1qrc" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Suelo_Gelatina_002.glb" id="13_tyta4"]
+[ext_resource type="PackedScene" uid="uid://dhrcenjwjerkt" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Nube_Azucar_001.glb" id="14_27213"]
+[ext_resource type="PackedScene" uid="uid://bnubbrti47o0j" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Donut_001.glb" id="15_pokkp"]
+[ext_resource type="PackedScene" uid="uid://n61h3rvl7dtt" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Chupa_Chups_001.glb" id="16_xa6wn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4hnx1"]
 size = Vector3(0.713131, 7.36255, 1)
@@ -14,9 +23,10 @@ size = Vector3(0.713131, 7.36255, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4yesi"]
 size = Vector3(38.9371, 2.8999, 1)
 
-[node name="BaseMap" type="Node3D" node_paths=PackedStringArray("dificulty_variations")]
+[node name="BaseMap" type="Node3D" node_paths=PackedStringArray("dificulty_variations", "sprinkles_variations")]
 script = ExtResource("1_bxys6")
 dificulty_variations = [NodePath("Spikes"), NodePath("Enemies"), NodePath("Jelly")]
+sprinkles_variations = [NodePath("Sprinkles01"), NodePath("Sprinkles02"), NodePath("Sprinkles03")]
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -1, -1)
@@ -145,3 +155,389 @@ script = ExtResource("3_blrw1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Jelly/DeadZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4505, -2.33862, 0)
 shape = SubResource("BoxShape3D_4yesi")
+
+[node name="Sprinkles01" type="Node3D" parent="."]
+
+[node name="Sprinkle" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29423, 0.860336, 0)
+
+[node name="Sprinkle2" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.79982, 0.860336, 0)
+
+[node name="Sprinkle3" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5205, 0.860336, 0)
+
+[node name="Sprinkle4" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.38456, 0.860336, 0)
+
+[node name="Sprinkle5" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53541, 0.860336, 0)
+
+[node name="Sprinkle6" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5429, 0.860336, 0)
+
+[node name="Sprinkle7" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4069, 0.860336, 0)
+
+[node name="Sprinkle8" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2142, 0.860336, 0)
+
+[node name="Sprinkle9" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2142, 0.860336, 0)
+
+[node name="Sprinkle10" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7952, 0.860336, 0)
+
+[node name="Sprinkle11" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3762, 0.860336, 0)
+
+[node name="Sprinkle12" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3352, 0.860336, 0)
+
+[node name="Sprinkle13" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6705, 0.860336, 0)
+
+[node name="Sprinkle14" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2515, 0.860336, 0)
+
+[node name="Sprinkle15" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5457, 0.860336, 0)
+
+[node name="Sprinkle16" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3493, 10.6108, 0)
+
+[node name="Sprinkle18" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7952, 4.51677, 0)
+
+[node name="Sprinkle19" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7952, 7.59965, 0)
+
+[node name="Sprinkle20" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.6808, 10.9693, 0)
+
+[node name="Sprinkle21" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.6501, 13.1918, 0)
+
+[node name="Sprinkle22" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0877, 13.1918, 0)
+
+[node name="Sprinkle23" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.7814, 0.932029, 0)
+
+[node name="Sprinkle24" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.7814, 0.932029, 0)
+
+[node name="Sprinkle17" parent="Sprinkles01" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3949, 8.81846, 0)
+
+[node name="Sprinkles02" type="Node3D" parent="."]
+
+[node name="Sprinkle" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63363, 0.895864, 0)
+
+[node name="Sprinkle2" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.63363, 0.895864, 0)
+
+[node name="Sprinkle3" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.852, 4.53202, 0)
+
+[node name="Sprinkle4" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5032, 5.0063, 0)
+
+[node name="Sprinkle5" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7103, 5.0063, 0)
+
+[node name="Sprinkle6" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7567, 5.0063, 0)
+
+[node name="Sprinkle7" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6563, 9.27482, 0)
+
+[node name="Sprinkle8" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6137, 11.857, 0)
+
+[node name="Sprinkle9" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.7718, 12.7002, 0)
+
+[node name="Sprinkle10" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.6802, 14.4392, 0)
+
+[node name="Sprinkle11" parent="Sprinkles02" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.8108, 0.895864, 0)
+
+[node name="Sprinkles03" type="Node3D" parent="."]
+
+[node name="Sprinkle" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6074, 5.11169, 0)
+
+[node name="Sprinkle2" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0327, 8.95864, 0)
+
+[node name="Sprinkle3" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4493, 11.8043, 0)
+
+[node name="Sprinkle4" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9374, 11.8043, 0)
+
+[node name="Sprinkle5" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6238, 11.8043, 0)
+
+[node name="Sprinkle6" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5322, 8.16817, 0)
+
+[node name="Sprinkle7" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5322, 13.6487, 0)
+
+[node name="Sprinkle8" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4457, 12.911, 0)
+
+[node name="Sprinkle9" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.3378, 8.80054, 0)
+
+[node name="Sprinkle11" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0455, 1.15935, 0)
+
+[node name="Sprinkle10" parent="Sprinkles03" instance=ExtResource("8_a2l1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5022, 12.911, 0)
+
+[node name="EscenarioDecoracion" type="Node3D" parent="."]
+
+[node name="Texturizado_Tostada_001" parent="EscenarioDecoracion" instance=ExtResource("9_24d5c")]
+transform = Transform3D(0.945371, 0.142069, -0.29341, -0.109609, 0.986167, 0.124343, 0.307017, -0.0853898, 0.947866, 4.7298, -2.68016, -3.71754)
+
+[node name="Texturizado_Tostada_002" parent="EscenarioDecoracion" instance=ExtResource("9_24d5c")]
+transform = Transform3D(0.505219, -0.751485, -0.424292, 0.853852, 0.506643, 0.11937, 0.12526, -0.422591, 0.897623, 13.4714, -0.0838029, -2.12004)
+
+[node name="Texturizado_Tostada_003" parent="EscenarioDecoracion" instance=ExtResource("9_24d5c")]
+transform = Transform3D(0.739958, -0.672652, 0.000665399, -0.0105414, -0.010607, 0.999888, -0.67257, -0.739883, -0.0149395, 33.2718, 3.58925, -2.30894)
+
+[node name="Texturizado_Tostada_004" parent="EscenarioDecoracion" instance=ExtResource("9_24d5c")]
+transform = Transform3D(0.739958, -0.672652, 0.0006654, 0.664817, 0.731187, -0.152917, 0.102373, 0.113595, 0.988239, 43.3729, -1.22242, -6.37254)
+
+[node name="Texturizado_Tostada_005" parent="EscenarioDecoracion" instance=ExtResource("9_24d5c")]
+transform = Transform3D(0.0505906, 0.0122753, -0.998644, -0.0322412, 0.999423, 0.0106516, 0.998199, 0.0316587, 0.0509572, 49.7573, -1.22242, -4.25702)
+
+[node name="Texturizado_Tostada_006" parent="EscenarioDecoracion" instance=ExtResource("9_24d5c")]
+transform = Transform3D(0.0456892, -0.323865, 0.944999, -0.018803, 0.945541, 0.32496, -0.998779, -0.032616, 0.0371114, 52.8486, -1.22242, -4.25702)
+
+[node name="Texturizado_Tostada_007" parent="EscenarioDecoracion" instance=ExtResource("9_24d5c")]
+transform = Transform3D(0.510138, 0.675125, -0.532884, 0.00919851, 0.615248, 0.78828, 0.860043, -0.407033, 0.307651, 73.6427, 9.21318, -4.25702)
+
+[node name="Texturizado_Tostada_008" parent="EscenarioDecoracion" instance=ExtResource("9_24d5c")]
+transform = Transform3D(0.790206, -0.495729, 0.360314, 0.0248394, 0.613366, 0.789409, -0.612337, -0.614846, 0.496999, 56.7042, 9.21318, -12.0356)
+
+[node name="Plataforma_Barquillo" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4079, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo2" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3074, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo14" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4311, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo15" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5064, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo29" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3661, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo30" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.952433, -0.304748, 0, 0.304748, 0.952433, 0, 0, 0, 1, 11.3177, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo31" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.999977, 0.00673693, 0, -0.00673693, 0.999977, 0, 0, 0, 1, 5.70156, -2.68787, -3.44162)
+
+[node name="Texturizado_Magnum_001" parent="EscenarioDecoracion" instance=ExtResource("11_5fx8u")]
+transform = Transform3D(0.612239, 0.256288, -0.190741, -0.241285, 0.646035, 0.0822187, 0.182489, -0.00565234, 0.74863, 59.2449, -1.29896, -2.27049)
+
+[node name="Texturizado_Osito_Gominola_001" parent="EscenarioDecoracion" instance=ExtResource("12_nxlj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7485, -0.124686, -2.19745)
+
+[node name="Texturizado_Osito_Gominola_002" parent="EscenarioDecoracion" instance=ExtResource("12_nxlj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8822, -0.349464, -3.38585)
+
+[node name="Texturizado_Osito_Gominola_005" parent="EscenarioDecoracion" instance=ExtResource("12_nxlj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3769, 9.56014, -2.19745)
+
+[node name="Texturizado_Osito_Gominola_006" parent="EscenarioDecoracion" instance=ExtResource("12_nxlj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.394, 9.41081, -2.19745)
+
+[node name="Plataforma_Barquillo32" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.999977, 0.00673693, 0, -0.00673693, 0.999977, 0, 0, 0, 1, 9.01417, -2.68787, -3.44162)
+
+[node name="Plataforma_Barquillo3" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2746, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo27" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.902653, 0.430369, 0, -0.430369, 0.902653, 0, 0, 0, 1, 1.83943, -0.950952, -3.13591)
+
+[node name="Plataforma_Barquillo21" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.99895, -0.00119933, -0.0458006, -0.0458163, -0.0261495, -0.998608, 2.31958e-10, 0.999657, -0.026177, 35.9777, -2.02838, -2.12225)
+
+[node name="Plataforma_Barquillo22" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.999733, 0.000604847, 0.0230982, 0.0231061, -0.02617, -0.999391, 2.31958e-10, 0.999657, -0.026177, 39.9796, -2.02838, -2.12225)
+
+[node name="Plataforma_Barquillo23" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.999733, 0.000604847, 0.0230982, 0.0231061, -0.02617, -0.999391, 2.31958e-10, 0.999657, -0.026177, 43.7581, -2.02838, -2.12225)
+
+[node name="Plataforma_Barquillo24" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.999733, 0.000604847, 0.0230982, 0.0231061, -0.02617, -0.999391, 2.31958e-10, 0.999657, -0.026177, 47.4832, -2.02838, -2.12225)
+
+[node name="Plataforma_Barquillo25" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.999733, 0.000604847, 0.0230982, 0.0231061, -0.02617, -0.999391, 2.31958e-10, 0.999657, -0.026177, 51.315, -2.02838, -2.12225)
+
+[node name="Plataforma_Barquillo26" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.999733, 0.000604847, 0.0230982, 0.0231061, -0.02617, -0.999391, 2.31958e-10, 0.999657, -0.026177, 55.196, -2.02838, -2.12225)
+
+[node name="Plataforma_Barquillo33" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.999733, 0.000604847, 0.0230982, 0.0231061, -0.02617, -0.999391, 2.31958e-10, 0.999657, -0.026177, 59.1426, -2.02838, -2.12225)
+
+[node name="Plataforma_Barquillo4" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3697, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo5" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.3628, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo6" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3616, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo18" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.0234, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo19" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.0228, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo20" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.0228, -0.950952, -3.44162)
+
+[node name="Plataforma_Barquillo7" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 44.3834, 1.42888, -3.44162)
+
+[node name="Plataforma_Barquillo8" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 40.541, 1.42888, -3.44162)
+
+[node name="Plataforma_Barquillo9" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 36.4279, 1.42888, -3.44162)
+
+[node name="Plataforma_Barquillo10" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 33.4279, 1.42888, -3.44162)
+
+[node name="Plataforma_Barquillo11" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 29.6612, 1.42888, -3.44162)
+
+[node name="Plataforma_Barquillo12" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 25.4373, 1.42888, -3.44162)
+
+[node name="Plataforma_Barquillo16" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 22.9938, 1.42888, -3.44162)
+
+[node name="Plataforma_Barquillo17" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 19.9213, 1.42888, -3.44162)
+
+[node name="Plataforma_Barquillo28" parent="EscenarioDecoracion" instance=ExtResource("10_6ejra")]
+transform = Transform3D(0.00328119, -0.999995, 0, 0.999995, 0.00328119, 0, 0, 0, 1, 15.4826, 1.42888, -3.44162)
+
+[node name="Texturizado_Suelo_Gelatina_002" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4252, -1.82341, -5.37838)
+
+[node name="Texturizado_Suelo_Gelatina_003" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.1768, -1.82341, -5.37838)
+
+[node name="Texturizado_Suelo_Gelatina_015" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.1768, -1.82341, -5.37838)
+
+[node name="Texturizado_Suelo_Gelatina_004" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5638, -1.82341, -6.57829)
+
+[node name="Texturizado_Suelo_Gelatina_005" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.2315, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_006" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0271, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_007" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9064, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_008" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.6593, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_020" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.6593, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_016" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.6593, -1.82341, -2.02674)
+
+[node name="Texturizado_Suelo_Gelatina_021" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.1231, -1.82341, -2.02674)
+
+[node name="Texturizado_Suelo_Gelatina_022" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.0233, -1.82341, -2.02674)
+
+[node name="Texturizado_Suelo_Gelatina_009" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.9764, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_010" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.9752, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_011" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8699, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_012" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70182, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_013" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79069, -1.82341, -6.56507)
+
+[node name="Texturizado_Suelo_Gelatina_014" parent="EscenarioDecoracion" instance=ExtResource("13_tyta4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06365, -1.82341, -6.56507)
+
+[node name="Texturizado_Nube_Azucar_001" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(0.97264, -0.205235, -0.10886, 0.143158, 0.160434, 0.97661, -0.18297, -0.965474, 0.185426, 42.5857, 4.26683, -2.23019)
+
+[node name="Texturizado_Nube_Azucar_005" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(0.386526, -0.0448004, 0.113965, -0.0946685, 0.078068, 0.403426, -0.0740632, -0.333595, 0.0791048, 44.9241, 13.2139, -5.0886)
+
+[node name="Texturizado_Nube_Azucar_010" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(0.22531, 0.268357, 0.125806, -0.28734, 0.0899158, 0.27922, 0.174701, -0.198208, 0.296997, 64.0027, 13.2139, -2.93035)
+
+[node name="Texturizado_Nube_Azucar_012" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(0.22531, 0.268357, 0.125806, -0.28734, 0.0899158, 0.27922, 0.174701, -0.198208, 0.296997, 59.9459, 7.55891, -6.1937)
+
+[node name="Texturizado_Nube_Azucar_011" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(-0.0169797, 0.31511, -0.174098, -0.28734, 0.0899158, 0.27922, 0.284599, 0.109582, 0.271522, 71.5532, 13.3207, -8.92476)
+
+[node name="Texturizado_Nube_Azucar_006" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(0.364506, 0.0875309, 0.150789, -0.152592, 0.0171204, 0.394573, 0.0877526, -0.333815, 0.0597753, 38.9757, 14.3237, -5.23034)
+
+[node name="Texturizado_Nube_Azucar_007" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(0.376397, 0.0555121, -0.141184, 0.120308, 0.0698081, 0.39811, 0.0877525, -0.333815, 0.0597753, 31.5207, 11.5533, -7.36589)
+
+[node name="Texturizado_Nube_Azucar_002" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(-0.415879, -0.147251, -0.897419, 0.90871, -0.106262, -0.403676, -0.03592, -0.983375, 0.178001, 47.45, 0.91688, -2.23019)
+
+[node name="Texturizado_Nube_Azucar_004" parent="EscenarioDecoracion" instance=ExtResource("14_27213")]
+transform = Transform3D(0.970973, -0.0764891, -0.226628, 0.236476, 0.164693, 0.957578, -0.03592, -0.983375, 0.178001, 22.0723, 3.79104, -2.23019)
+
+[node name="Texturizado_Donut_001" parent="EscenarioDecoracion" instance=ExtResource("15_pokkp")]
+transform = Transform3D(0.773075, -0.486702, -0.406787, -0.115419, 0.522663, -0.844691, 0.623725, 0.69996, 0.347883, 42.5881, 13.5275, -9.51859)
+
+[node name="Texturizado_Donut_002" parent="EscenarioDecoracion" instance=ExtResource("15_pokkp")]
+transform = Transform3D(0.441775, 0.581487, -0.0560375, -0.175048, 0.0501417, -0.643016, -0.579692, 0.428002, 0.151464, 28.063, 10.0538, -8.72433)
+
+[node name="Texturizado_Donut_004" parent="EscenarioDecoracion" instance=ExtResource("15_pokkp")]
+transform = Transform3D(0.705706, -0.00238939, -0.22345, -0.18862, 0.4765, -0.470314, 0.168079, 0.544766, 0.410397, 4.8212, 8.19081, -2.71761)
+
+[node name="Texturizado_Donut_005" parent="EscenarioDecoracion" instance=ExtResource("15_pokkp")]
+transform = Transform3D(0.726653, -0.0438744, -0.157628, -0.17891, -0.00612853, -0.6438, 0.042615, 0.722402, -0.0150352, 23.8669, 9.63801, -2.67696)
+
+[node name="Texturizado_Donut_007" parent="EscenarioDecoracion" instance=ExtResource("15_pokkp")]
+transform = Transform3D(0.726653, -0.0438744, -0.157628, -0.17891, -0.00612853, -0.6438, 0.042615, 0.722402, -0.0150352, 56.082, 0.907128, -2.60795)
+
+[node name="Texturizado_Donut_009" parent="EscenarioDecoracion" instance=ExtResource("15_pokkp")]
+transform = Transform3D(0.726653, -0.0438744, -0.157628, -0.17891, -0.00612853, -0.6438, 0.042615, 0.722402, -0.0150352, 58.7856, 0.701567, -5.07595)
+
+[node name="Texturizado_Chupa_Chups_003" parent="EscenarioDecoracion" instance=ExtResource("16_xa6wn")]
+transform = Transform3D(0.39182, -0.000522487, 0, 0.000649676, 0.315112, 0, 0, 0, 0.406537, 68.3208, -0.851141, -4.90605)
+
+[node name="Texturizado_Chupa_Chups_004" parent="EscenarioDecoracion" instance=ExtResource("16_xa6wn")]
+transform = Transform3D(0.374618, 0.0923456, 0, -0.114825, 0.301278, 0, 0, 0, 0.406537, 70.0806, -0.851141, -4.90605)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvf7vvq7ym017"]
+[gd_scene load_steps=6 format=3 uid="uid://dvf7vvq7ym017"]
 
 [ext_resource type="ArrayMesh" uid="uid://bsp621tw8mafi" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_009.res" id="1_a70qc"]
+[ext_resource type="AudioStream" uid="uid://d0o3c367602bs" path="res://Recursos/Musica/Sonidos/Pj/Morir/Audio_Morir_Pj_001.ogg" id="2_win1k"]
 
 [sub_resource type="Curve" id="Curve_a70qc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.413187, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -30,3 +31,7 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_a70qc")
 draw_pass_1 = ExtResource("1_a70qc")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_win1k")
+volume_db = -10.0

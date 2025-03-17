@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://cwqptqim1mo5y"]
+[gd_scene load_steps=10 format=4 uid="uid://cwqptqim1mo5y"]
 
 [ext_resource type="Script" uid="uid://1nfopdhobfi8" path="res://Enitidades/MapAssets/flying_enemy.gd" id="1_7dmgp"]
 [ext_resource type="Animation" uid="uid://b6826slposlb2" path="res://Enitidades/MapAssets/Animations/Volar.res" id="1_e4gwj"]
 [ext_resource type="Animation" uid="uid://oq3vj4m6438t" path="res://Enitidades/MapAssets/Animations/Volar y Atacar.res" id="2_7dmgp"]
+[ext_resource type="AudioStream" uid="uid://dd8mxdryibnya" path="res://Recursos/Musica/Sonidos/Enemys/Fly/Atacar/Audio_Atacar_Caramelo_001.ogg" id="4_mawci"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dmgp"]
 
@@ -100,6 +101,10 @@ aabb = AABB(-1.39911, -1.15602, -1, 2.79822, 2.31205, 2)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 unique_name_in_owner = true
 shape = SubResource("SphereShape3D_7dmgp")
+
+[node name="Audio_Atacar_Fly" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_mawci")
+volume_db = -25.806
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]

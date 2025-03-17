@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://crhhs2crarrl4"]
+
+[resource]
+resource_name = "Base_Donut_001"
+cull_mode = 2
+albedo_color = Color(0.63, 0.483, 0.2772, 1)
+roughness = 0.5
