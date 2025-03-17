@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ci34j0v47okm4"]
+
+[resource]
+resource_name = "Palo_Chupa_Chups_001"
+cull_mode = 2
+albedo_color = Color(0.66, 0.59224, 0.2904, 1)
+roughness = 0.5

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bepiq87vgvgk3"]
+
+[resource]
+resource_name = "NataMaterial"
+cull_mode = 2
+albedo_color = Color(0.63, 0.6174, 0.5796, 1)
+roughness = 0.5
