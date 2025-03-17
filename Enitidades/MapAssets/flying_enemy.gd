@@ -5,6 +5,7 @@ var player: PlayerBehaviour
 
 const PROJECTILE = preload("res://Enitidades/MapAssets/projectile.tscn")
 const DEATH_PARTICLES = preload("res://Enitidades/MapAssets/death_particles.tscn")
+const MUERTE_ENEMIGOS_001 = preload("res://Recursos/Musica/Sonidos/Enemys/Oso/Morir/Muerte_Enemigos_001.ogg")
 
 @onready var mesh_caramelo_001: MeshInstance3D = %Mesh_Caramelo_001
 
@@ -14,6 +15,8 @@ func _ready() -> void:
 	var rand = randf()
 	var rand_color = Color.from_hsv(rand, 1.0, 0.9)
 	mesh_caramelo_001.mesh.surface_get_material(0).albedo_color = rand_color
+	get_parent_node_3d().visibility_changed.connect(_on_visibility_changed)
+	_on_visibility_changed()
 
 func shoot() -> void:
 	if not on_screen || global_position.y > 20. || global_position.y < 0. || player == null: return
@@ -35,6 +38,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	get_parent().add_child(particles)
 	particles.global_position = global_position
 	particles.set_emitting(true)
+	particles.get_child(0).stream = MUERTE_ENEMIGOS_001
+	particles.get_child(0).play()
 	queue_free()
 	return
 

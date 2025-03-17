@@ -1,6 +1,7 @@
 extends Node3D
 
 const DEATH_PARTICLES = preload("res://Enitidades/MapAssets/death_particles.tscn")
+const MUERTE_ENEMIGOS_001 = preload("res://Recursos/Musica/Sonidos/Enemys/Oso/Morir/Muerte_Enemigos_001.ogg")
 
 @onready var modelo: Node3D = %Modelo
 @onready var right_ray: RayCast3D = %RightRay
@@ -16,6 +17,8 @@ func _ready() -> void:
 	var rand = randf()
 	var rand_color = Color.from_hsv(rand, 1.0, 0.9)
 	modelo.mesh.surface_get_material(0).albedo_color = rand_color
+	get_parent_node_3d().visibility_changed.connect(_on_collision_shape_3d_visibility_changed)
+	_on_collision_shape_3d_visibility_changed()
 
 func _process(delta: float) -> void:
 	if move_right:
@@ -38,6 +41,8 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 		get_parent().add_child(particles)
 		particles.global_position = global_position
 		particles.set_emitting(true)
+		particles.get_child(0).stream = MUERTE_ENEMIGOS_001
+		particles.get_child(0).play()
 		queue_free()
 		return
 	
@@ -46,6 +51,7 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 	add_child(particles)
 	particles.global_position = player.global_position
 	particles.set_emitting(true)
+	particles.get_child(0).play()
 	player.queue_free()
 	await  get_tree().create_timer(0.5).timeout
 	GameManager.score_screen.apear()

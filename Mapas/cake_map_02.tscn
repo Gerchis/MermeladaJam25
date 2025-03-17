@@ -20,10 +20,10 @@
 size = Vector3(1.63815, 2.00378, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cxrgl"]
-size = Vector3(1.48919, 2.10583, 1)
+size = Vector3(2.03563, 2.10583, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ma7ug"]
-size = Vector3(4.2705, 0.831055, 1)
+size = Vector3(5.39221, 0.831055, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_03cd5"]
 size = Vector3(20.9746, 3.29019, 1)
@@ -38,34 +38,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -1, -1)
 mesh_library = ExtResource("1_j6bac")
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 7, 7, 0, 4, 8, 0, 0, 9, 0, 7, 12, 0, 4, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, -9, 0, 1, -8, 0, 1, -7, 0, 1, -6, 0, 1, -5, 0, 1, -4, 0, 12, -65529, 0, 5, -65528, 0, 1, -65527, 0, 12, -65524, 0, 5, -65523, 0, 1, -65522, 0, 1, -65521, 0, 1, -65520, 0, 1, -65519, 0, 1, -65518, 0, 1, -65517, 0, 1, -65516, 0, 1, -65515, 0, 1, 196601, 0, 8, 196602, 0, 10, 196603, 0, 9, 327677, 0, 8, 327678, 0, 10, 327679, 0, 9, 262148, 0, 8, 262149, 0, 10, 262150, 0, 9, 262151, 0, 4, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 7, 196615, 0, 5, 196616, 0, 1, 196617, 0, 1, 196618, 0, 1, 196619, 0, 1, 196620, 0, 1, 196621, 0, 1, 196622, 0, 1, 196623, 0, 1, 196624, 0, 12, 131081, 0, 7, 131080, 0, 0, 131079, 0, 4, 65543, 0, 5, 65544, 0, 1, 65545, 0, 12, 327695, 0, 5, 327696, 0, 12, 393232, 0, 2, 393231, 0, 131074, 458768, 0, 7, 458767, 0, 4, 524304, 0, 9, 524303, 0, 10, 524302, 0, 10, 524301, 0, 10, 524300, 0, 8, 524297, 0, 9, 524296, 0, 10, 524295, 0, 10, 524294, 0, 10, 524293, 0, 10, 524292, 0, 8, 458761, 0, 9, 458760, 0, 10, 458759, 0, 10, 458758, 0, 10, 458757, 0, 8, 393222, 0, 8, 393223, 0, 10, 393224, 0, 10, 393225, 0, 10, 393226, 0, 10, 393227, 0, 10, 393228, 0, 9, 65565, 0, 11, 131101, 0, 11, 65563, 0, 11, 131099, 0, 11, 196635, 0, 11, 65560, 0, 11, 131096, 0, 11, 196632, 0, 11, 131094, 0, 11, 65558, 0, 11, -65506, 0, 1, -65507, 0, 1, -65508, 0, 1, -65509, 0, 1, -65510, 0, 1, -65511, 0, 1, -65512, 0, 1, -65513, 0, 1, -65514, 0, 1, 28, 0, 0, 27, 0, 0, 30, 0, 0, 29, 0, 0, 26, 0, 0, 25, 0, 0, 24, 0, 0, 23, 0, 0, 22, 0, 0)
+"cells": PackedInt32Array(65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 7, 7, 0, 4, 8, 0, 0, 9, 0, 7, 12, 0, 4, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, -9, 0, 1, -8, 0, 1, -7, 0, 1, -6, 0, 1, -5, 0, 1, -4, 0, 12, -65529, 0, 5, -65528, 0, 1, -65527, 0, 12, -65524, 0, 5, -65523, 0, 1, -65522, 0, 1, -65521, 0, 1, -65520, 0, 1, -65519, 0, 1, -65518, 0, 1, -65517, 0, 1, -65516, 0, 1, -65515, 0, 1, 196601, 0, 8, 196602, 0, 10, 196603, 0, 9, 327677, 0, 8, 327678, 0, 10, 327679, 0, 9, 262148, 0, 8, 262149, 0, 10, 262150, 0, 9, 262151, 0, 4, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 7, 196615, 0, 5, 196616, 0, 1, 196617, 0, 1, 196618, 0, 1, 196619, 0, 1, 196620, 0, 1, 196621, 0, 1, 196622, 0, 1, 196623, 0, 1, 196624, 0, 12, 131081, 0, 7, 131080, 0, 0, 131079, 0, 4, 65543, 0, 5, 65544, 0, 1, 65545, 0, 12, 327695, 0, 5, 327696, 0, 12, 393232, 0, 2, 393231, 0, 131074, 458768, 0, 7, 458767, 0, 4, 524304, 0, 9, 524303, 0, 10, 524302, 0, 10, 524301, 0, 10, 524300, 0, 8, 524297, 0, 9, 524296, 0, 10, 524295, 0, 10, 524294, 0, 10, 524293, 0, 10, 524292, 0, 8, 458761, 0, 9, 458760, 0, 10, 458759, 0, 10, 458758, 0, 10, 458757, 0, 8, 393222, 0, 8, 393223, 0, 10, 393224, 0, 10, 393225, 0, 10, 393226, 0, 10, 393227, 0, 10, 393228, 0, 9, 65565, 0, 11, 131101, 0, 11, 65563, 0, 11, 131099, 0, 11, 196635, 0, 11, -65506, 0, 1, -65507, 0, 1, -65508, 0, 1, -65509, 0, 1, -65510, 0, 1, -65511, 0, 1, -65512, 0, 1, -65513, 0, 1, -65514, 0, 1, 28, 0, 0, 27, 0, 0, 30, 0, 0, 29, 0, 0, 26, 0, 0, 25, 0, 0, 24, 0, 0, 23, 0, 0, 22, 0, 0, 65562, 0, 11, 131098, 0, 11, 196634, 0, 11, 65559, 0, 11, 131095, 0, 11, 131094, 0, 11, 65558, 0, 11, 196631, 0, 11, 196630, 0, 11, 65556, 0, 11, 131092, 0, 11)
 }
-metadata/_editor_floor_ = Vector3(0, 0, 0)
+metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="Spikes" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Spikes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3171, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.3658, 0, 0)
 mesh = ExtResource("2_dpgr4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Spikes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.309, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.3577, 0, 0)
 mesh = ExtResource("2_dpgr4")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Spikes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.3114, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.2724, 0, 0)
 mesh = ExtResource("2_dpgr4")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Spikes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3033, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.2643, 0, 0)
 mesh = ExtResource("2_dpgr4")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Spikes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.383, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.344, 0, 0)
 mesh = ExtResource("2_dpgr4")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Spikes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.3749, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3359, 0, 0)
 mesh = ExtResource("2_dpgr4")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Spikes"]
@@ -91,7 +91,7 @@ monitorable = false
 script = ExtResource("3_cxrgl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spikes/DeadZone2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99129, -0.679016, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9994, -0.679016, 0)
 shape = SubResource("BoxShape3D_cxrgl")
 
 [node name="DeadZone3" type="Area3D" parent="Spikes"]
@@ -100,7 +100,7 @@ monitorable = false
 script = ExtResource("3_cxrgl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spikes/DeadZone3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127914, -0.0844727, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07732, -0.0844727, 0)
 shape = SubResource("BoxShape3D_ma7ug")
 
 [node name="StartEnemies" type="Node3D" parent="."]
@@ -171,6 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.913906, -0.0365753, 0)
 shape = SubResource("BoxShape3D_03cd5")
 
 [node name="Sprinkles01" type="Node3D" parent="."]
+visible = false
 
 [node name="Sprinkle" parent="Sprinkles01" instance=ExtResource("5_1k6bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58911, 4.77853, 0)
@@ -188,15 +189,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6696, 8.77983, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.8845, 5.09791, 0)
 
 [node name="Sprinkle6" parent="Sprinkles01" instance=ExtResource("5_1k6bt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.9517, 6.98864, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.9517, 6.98864, 0)
 
 [node name="Sprinkle7" parent="Sprinkles01" instance=ExtResource("5_1k6bt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0856, 6.98864, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.0856, 6.98864, 0)
 
 [node name="Sprinkle8" parent="Sprinkles01" instance=ExtResource("5_1k6bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.0869, 4.94402, 0)
 
 [node name="Sprinkles02" type="Node3D" parent="."]
+visible = false
 
 [node name="Sprinkle" parent="Sprinkles02" instance=ExtResource("5_1k6bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7104, 8.86666, 0)
@@ -220,15 +222,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0957, 1.05258, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.1019, 1.05258, 0)
 
 [node name="Sprinkles03" type="Node3D" parent="."]
+visible = false
 
 [node name="Sprinkle" parent="Sprinkles03" instance=ExtResource("5_1k6bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1328, 12.8466, 0)
 
 [node name="Sprinkle3" parent="Sprinkles03" instance=ExtResource("5_1k6bt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.2066, 11.3099, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.7094, 9.78664, 0)
 
 [node name="Sprinkle5" parent="Sprinkles03" instance=ExtResource("5_1k6bt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.6156, 8.54388, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9947, 7.14548, 0)
 
 [node name="Sprinkle6" parent="Sprinkles03" instance=ExtResource("5_1k6bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.1922, 1.10641, 0)
@@ -258,10 +261,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6529, 1.10641, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9747, 1.10641, 0)
 
 [node name="Sprinkle15" parent="Sprinkles03" instance=ExtResource("5_1k6bt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.126, 3.13481, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0388, 4.9354, 0)
 
 [node name="Sprinkle4" parent="Sprinkles03" instance=ExtResource("5_1k6bt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5516, 8.42095, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0261, 7.42095, 0)
 
 [node name="Sprinkle2" parent="Sprinkles03" instance=ExtResource("5_1k6bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5347, 12.8466, 0)

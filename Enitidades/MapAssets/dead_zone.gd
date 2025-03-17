@@ -14,6 +14,7 @@ func on_body_entered(body: Node3D):
 	add_child(particles)
 	particles.global_position = player.global_position
 	particles.set_emitting(true)
+	particles.get_child(0).play()
 	player.queue_free()
 	await  get_tree().create_timer(0.5).timeout
 	GameManager.score_screen.apear()

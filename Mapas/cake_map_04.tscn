@@ -80,6 +80,24 @@ mesh = ExtResource("2_r5fev")
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 29.3017, 4.01697, 0)
 mesh = ExtResource("2_r5fev")
 
+[node name="DeadZone" type="Area3D" parent="EntrySpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2324, 3.71249, 0)
+monitorable = false
+script = ExtResource("3_dv563")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntrySpikes/DeadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.268878, -0.0844727, 0)
+shape = SubResource("BoxShape3D_5uno4")
+
+[node name="DeadZone2" type="Area3D" parent="EntrySpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0804, 3.71249, 0)
+monitorable = false
+script = ExtResource("3_dv563")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntrySpikes/DeadZone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578182, -0.0844727, 0)
+shape = SubResource("BoxShape3D_dv563")
+
 [node name="EndSpikes" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="EndSpikes"]
@@ -105,24 +123,6 @@ mesh = ExtResource("2_r5fev")
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="EndSpikes"]
 transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 70.3162, 3.97313, 0)
 mesh = ExtResource("2_r5fev")
-
-[node name="DeadZone" type="Area3D" parent="EndSpikes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2324, 3.71249, 0)
-monitorable = false
-script = ExtResource("3_dv563")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EndSpikes/DeadZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.268878, -0.0844727, 0)
-shape = SubResource("BoxShape3D_5uno4")
-
-[node name="DeadZone2" type="Area3D" parent="EndSpikes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0804, 3.71249, 0)
-monitorable = false
-script = ExtResource("3_dv563")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EndSpikes/DeadZone2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578182, -0.0844727, 0)
-shape = SubResource("BoxShape3D_dv563")
 
 [node name="DeadZone3" type="Area3D" parent="EndSpikes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.158, 8.4953, 0)

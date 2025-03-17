@@ -15,6 +15,7 @@ func _ready() -> void:
 	material.albedo_color = rand_color
 	modelo.mesh.surface_set_material(0, material.duplicate())
 	get_parent_node_3d().visibility_changed.connect(_on_visibility_changed)
+	_on_visibility_changed()
 
 func _process(delta: float) -> void:
 	time_count += delta * 4

@@ -12,9 +12,11 @@ var run_score : int :
 var time_score : int = 0
 var extra_score : int = 0
 
+
 func _ready() -> void:
 	stored_data = StoredData.new()
 	load_file()
+	AudioServer.set_bus_volume_linear(0, stored_data.volume)
 
 func _exit_tree() -> void:
 	store_file()

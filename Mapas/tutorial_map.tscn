@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ce4cpdx6ya06n"]
+[gd_scene load_steps=12 format=3 uid="uid://ce4cpdx6ya06n"]
 
 [ext_resource type="MeshLibrary" uid="uid://bh4ribb1ymbnn" path="res://Recursos/Tilesets/Pastel.tres" id="1_i77f5"]
 [ext_resource type="Script" uid="uid://cr7xmobeatnuw" path="res://Mapas/map_variation.gd" id="1_mhlhf"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dhrcenjwjerkt" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Nube_Azucar_001.glb" id="9_pk3yh"]
 [ext_resource type="PackedScene" uid="uid://bnubbrti47o0j" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Donut_001.glb" id="10_cuhj2"]
 [ext_resource type="PackedScene" uid="uid://n61h3rvl7dtt" path="res://Recursos/Modelos/ModelosEscenario/Texturizado_Chupa_Chups_001.glb" id="11_yjakq"]
-[ext_resource type="PackedScene" uid="uid://cbdw4xwuk8ng5" path="res://Enitidades/MapAssets/ground_enemy.tscn" id="12_xwpiu"]
 
 [node name="TutorialMap" type="Node3D"]
 script = ExtResource("1_mhlhf")
@@ -357,6 +356,3 @@ transform = Transform3D(0.356092, -0.131465, 0, 0.163468, 0.286379, 0, 0, 0, 0.4
 
 [node name="Texturizado_Chupa_Chups_007" parent="EscenarioDecoracion" instance=ExtResource("11_yjakq")]
 transform = Transform3D(0.39182, -0.000522487, 0, 0.000649676, 0.315112, 0, 0, 0, 0.406537, 78.4178, -3.07941, -3.74249)
-
-[node name="GroundEnemy" parent="." instance=ExtResource("12_xwpiu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9408, 0, 0)
