@@ -6,6 +6,8 @@ func _enter(previous_state: String, data := {}) -> void:
 	player.velocity.z = 0.0
 	anim.set("parameters/conditions/isIdle", true)
 	anim.set("parameters/conditions/isWalking", false)
+	anim.set("parameters/conditions/inFloor", true)
+	anim.set("parameters/conditions/isFalling", false)
 
 func _update(_delta: float) -> void:
 	if player.movement_inpus.x != 0.0 and player.is_on_floor():

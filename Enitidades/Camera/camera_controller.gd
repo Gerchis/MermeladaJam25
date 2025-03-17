@@ -10,6 +10,7 @@ func _ready() -> void:
 	original_offset = player.global_position - global_position
 
 func _process(delta: float) -> void:
+	if player == null: return
 	handle_horizontal_offset()
 	handle_vertical_offset()
 

@@ -1,9 +1,22 @@
-[gd_scene load_steps=15 format=3 uid="uid://ck1hlvv08ijcx"]
+[gd_scene load_steps=42 format=3 uid="uid://ck1hlvv08ijcx"]
 
 [ext_resource type="Script" uid="uid://cy8v28ymthxs5" path="res://Enitidades/MainMenu/main_menu.gd" id="2_857sk"]
 [ext_resource type="Shader" uid="uid://cap2hhowunnuc" path="res://Recursos/Shaders/crt_effect.gdshader" id="2_e4xe7"]
 [ext_resource type="Texture2D" uid="uid://cvs8v3bga50wn" path="res://Recursos/Sprites/SpritSheet_BTNS_MainMenu_001.png" id="2_ktffj"]
 [ext_resource type="Texture2D" uid="uid://b2xh7op4jrjvg" path="res://Recursos/Sprites/MainMenu_001.png" id="3_ktffj"]
+[ext_resource type="Texture2D" uid="uid://jdb7ju33qa0w" path="res://Recursos/Sprites/CupcakeMenuReecuentodeSprinkles.png" id="5_itgvu"]
+[ext_resource type="ArrayMesh" uid="uid://jt48q46al81u" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_008.res" id="6_rc3av"]
+[ext_resource type="Script" uid="uid://cc1ud4sjowivc" path="res://Mapas/score_screen.gd" id="6_sdjnt"]
+[ext_resource type="ArrayMesh" uid="uid://bsp621tw8mafi" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_009.res" id="7_sdjnt"]
+[ext_resource type="ArrayMesh" uid="uid://b2u8aqcfnps1v" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_010.res" id="8_46obj"]
+[ext_resource type="ArrayMesh" uid="uid://b5gyy8jbwv46" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_011.res" id="9_x3cf6"]
+[ext_resource type="ArrayMesh" uid="uid://ikr4qaqi00nd" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_012.res" id="10_2cpx3"]
+[ext_resource type="ArrayMesh" uid="uid://cfkifm0l2ljm0" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_013.res" id="11_sgajv"]
+[ext_resource type="ArrayMesh" uid="uid://bpic18qcqjxd0" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Circle.res" id="12_qhgqt"]
+[ext_resource type="Shader" uid="uid://beautggkve2un" path="res://Recursos/Shaders/comic_effect.gdshader" id="14_46obj"]
+[ext_resource type="ArrayMesh" uid="uid://c8lay2apopqot" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_005.res" id="15_x3cf6"]
+[ext_resource type="Texture2D" uid="uid://c4lb4vknjopqv" path="res://Recursos/Sprites/Btn_002.png" id="16_2cpx3"]
+[ext_resource type="Texture2D" uid="uid://c6ew5y5asexm0" path="res://Recursos/Sprites/Btn_001.png" id="17_sgajv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_857sk"]
 atlas = ExtResource("2_ktffj")
@@ -65,6 +78,125 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 1.0
 shader_parameter/vignette_opacity = 0.772
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_857sk"]
+bg_color = Color(0.6, 0.5395, 0.27, 0.545098)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc3av"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(80, 80, 1072, 1040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdjnt"]
+atlas = ExtResource("2_ktffj")
+region = Rect2(1352, 120, 128, 128)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maokc"]
+bg_color = Color(0.313726, 0.196078, 0.027451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 5.0
+expand_margin_top = 25.0
+expand_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itgvu"]
+bg_color = Color(0.85, 0.6868, 0.306, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0s2n"]
+render_priority = 0
+shader = ExtResource("14_46obj")
+shader_parameter/zNear = 0.05
+shader_parameter/zFar = 100.0
+shader_parameter/outlineThickness = 0.5
+shader_parameter/outlineColor = Color(0.144063, 0.144063, 0.144063, 1)
+shader_parameter/wiggleFrequency = 0.08
+shader_parameter/wiggleAmplitude = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_x3cf6"]
+material = SubResource("ShaderMaterial_e0s2n")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="Environment" id="Environment_sdjnt"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.22
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2cpx3"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.5
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3cf6"]
+font_size = 50
+font_color = Color(0.03, 0.03, 0.03, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgajv"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.788235, 0.372549, 0.494118, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.7, 0.7, 0.7, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhgqt"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.788235, 0.372549, 0.494118, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.7, 0.7, 0.7, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnhk7"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.788235, 0.372549, 0.494118, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.7, 0.7, 0.7, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jqaf"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.788235, 0.372549, 0.494118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="MainWindow" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -74,6 +206,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainMenu" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,4 +276,242 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_857sk")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 2
+texture = SubResource("AtlasTexture_rc3av")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -64.0
+offset_right = 561.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.345, 0.345)
+theme_override_icons/grabber = SubResource("AtlasTexture_sdjnt")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_sdjnt")
+theme_override_styles/slider = SubResource("StyleBoxFlat_maokc")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_itgvu")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_itgvu")
+value = 50.0
+
+[node name="ScoreScreen" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_itgvu")
+expand_mode = 1
+script = ExtResource("6_sdjnt")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="ScoreScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="ScoreScreen/SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1536, 864)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="ScoreScreen/SubViewportContainer/SubViewport"]
+
+[node name="Modelado_Muffin_Score_001" type="Node3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 0, 0.304793, 0)
+
+[node name="Mesh_Sprikle_002_004" type="MeshInstance3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D/Modelado_Muffin_Score_001"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525894, -0.1856)
+mesh = ExtResource("6_rc3av")
+skeleton = NodePath("")
+
+[node name="Mesh_Sprikle_001_004Visibility" type="MeshInstance3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D/Modelado_Muffin_Score_001"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525894, -0.1856)
+mesh = ExtResource("7_sdjnt")
+skeleton = NodePath("")
+
+[node name="Mesh_Sprikle_002_005" type="MeshInstance3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D/Modelado_Muffin_Score_001"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525894, -0.1856)
+mesh = ExtResource("8_46obj")
+skeleton = NodePath("")
+
+[node name="Mesh_Sprikle_002_006" type="MeshInstance3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D/Modelado_Muffin_Score_001"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525894, -0.1856)
+mesh = ExtResource("9_x3cf6")
+skeleton = NodePath("")
+
+[node name="Mesh_Sprikle_001_004" type="MeshInstance3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D/Modelado_Muffin_Score_001"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525894, -0.1856)
+mesh = ExtResource("10_2cpx3")
+skeleton = NodePath("")
+
+[node name="Mesh_Sprikle_001_005" type="MeshInstance3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D/Modelado_Muffin_Score_001"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525894, -0.1856)
+mesh = ExtResource("11_sgajv")
+skeleton = NodePath("")
+
+[node name="Mesh_Cupcake" type="MeshInstance3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D/Modelado_Muffin_Score_001"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187382, -0.352956, -0.0120221)
+mesh = ExtResource("12_qhgqt")
+skeleton = NodePath("")
+
+[node name="Camera3D" type="Camera3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.253417, 1.1418, 5.89963)
+
+[node name="LineEffect" type="MeshInstance3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00286019, 0.00771356, -0.00164175)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_x3cf6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D"]
+environment = SubResource("Environment_sdjnt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(0.482963, 0.258819, -0.836516, -0.12941, 0.965926, 0.224144, 0.866025, 1.11056e-08, 0.5, -11.2269, 0, 3.31199)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="ScoreScreen/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.52024, 2.18206)
+amount = 50
+lifetime = 3.0
+preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_2cpx3")
+draw_pass_1 = ExtResource("15_x3cf6")
+
+[node name="Title" type="Label" parent="ScoreScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -287.5
+offset_top = -814.0
+offset_right = 287.5
+offset_bottom = -742.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "FIN DE PARTIDA"
+label_settings = SubResource("LabelSettings_x3cf6")
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="ScoreScreen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -768.0
+offset_top = -350.0
+offset_right = 769.0
+offset_bottom = -278.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Puntuación: "
+label_settings = SubResource("LabelSettings_x3cf6")
+horizontal_alignment = 1
+
+[node name="Highscore" type="Label" parent="ScoreScreen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -768.0
+offset_top = -276.0
+offset_right = 769.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Mejor Puntuación: 1478646"
+label_settings = SubResource("LabelSettings_x3cf6")
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="ScoreScreen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 122.0
+offset_top = -161.0
+offset_right = 357.0
+offset_bottom = -89.0
+grow_vertical = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 43
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgajv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_sgajv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qhgqt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nnhk7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jqaf")
+text = "Volver"
+icon = ExtResource("16_2cpx3")
+icon_alignment = 2
+
+[node name="RetryButton" type="Button" parent="ScoreScreen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -499.0
+offset_top = -157.0
+offset_right = -164.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 43
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgajv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_sgajv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qhgqt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nnhk7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jqaf")
+text = "Reintentar"
+icon = ExtResource("17_sgajv")
+icon_alignment = 2
+
 [connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="ScoreScreen/ReturnButton" to="ScoreScreen" method="_on_return_button_pressed"]
+[connection signal="pressed" from="ScoreScreen/RetryButton" to="ScoreScreen" method="_on_retry_button_pressed"]

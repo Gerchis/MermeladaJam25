@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0qwbmqfi4vqc"]
+
+[ext_resource type="ArrayMesh" uid="uid://jt48q46al81u" path="res://Recursos/Mallas/Modelado_Muffin_Score_001_Sphere_008.res" id="1_3p2sg"]
+[ext_resource type="Script" uid="uid://5utbdrxx51bc" path="res://Enitidades/MapAssets/sprinkles.gd" id="1_xivkw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h1g5t"]
+radius = 0.64902
+
+[node name="Sprinkle" type="Node3D"]
+script = ExtResource("1_xivkw")
+
+[node name="Modelo" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2.34111, -0.87703, 0, 0.87703, 2.34111, 0, 0, 0, 2.5, 2.95925, -5.47919, 1.69134)
+mesh = ExtResource("1_3p2sg")
+
+[node name="Area3D" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_h1g5t")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

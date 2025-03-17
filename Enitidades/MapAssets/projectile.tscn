@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv8kkmskecvig"]
+
+[ext_resource type="Texture2D" uid="uid://befxarcmccru" path="res://Recursos/Sprites/Caramelotxt_002.png" id="1_1g354"]
+[ext_resource type="Script" uid="uid://c4tp011jip6t3" path="res://Enitidades/MapAssets/projectile.gd" id="2_k00x2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lmec"]
+albedo_texture = ExtResource("1_1g354")
+
+[sub_resource type="SphereMesh" id="SphereMesh_s8m1s"]
+material = SubResource("StandardMaterial3D_1lmec")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y6xb3"]
+
+[node name="Projectile" type="MeshInstance3D"]
+transform = Transform3D(-0.0760386, -0.740998, -0.396953, -0.306215, -0.346773, 0.705983, -0.782867, 0.20761, -0.237587, 0, 0, 0)
+mesh = SubResource("SphereMesh_s8m1s")
+script = ExtResource("2_k00x2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_y6xb3")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

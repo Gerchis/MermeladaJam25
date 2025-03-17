@@ -4,6 +4,8 @@ extends PlayerState
 func _enter(previous_state: String, data := {}) -> void:
 	anim.set("parameters/conditions/isWalking", true)
 	anim.set("parameters/conditions/isIdle", false)
+	anim.set("parameters/conditions/inFloor", true)
+	anim.set("parameters/conditions/isFalling", false)
 
 func _update(_delta: float) -> void:
 	if player.velocity.x == 0.0 and player.movement_inpus.x == 0.0:

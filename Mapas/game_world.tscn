@@ -1,17 +1,22 @@
-[gd_scene load_steps=26 format=3 uid="uid://bk5k783km8q6j"]
+[gd_scene load_steps=31 format=3 uid="uid://bk5k783km8q6j"]
 
 [ext_resource type="PackedScene" uid="uid://ce4cpdx6ya06n" path="res://Mapas/tutorial_map.tscn" id="1_fsu5c"]
 [ext_resource type="Script" uid="uid://bxhcvsgkybdan" path="res://Mapas/map_generation.gd" id="1_i3hsw"]
 [ext_resource type="PackedScene" uid="uid://c4yhlgmx83je4" path="res://Enitidades/Player/player.tscn" id="2_05nn2"]
-[ext_resource type="PackedScene" uid="uid://bv27vagoo0qxd" path="res://Mapas/base_map.tscn" id="3_ac6o2"]
+[ext_resource type="PackedScene" uid="uid://dks8ox8fgj6v8" path="res://Mapas/cake_map_01.tscn" id="3_7wn5i"]
 [ext_resource type="Shader" uid="uid://beautggkve2un" path="res://Recursos/Shaders/comic_effect.gdshader" id="3_m0jot"]
 [ext_resource type="Script" uid="uid://s832ko1v0k0f" path="res://Enitidades/Camera/camera_controller.gd" id="3_rbbxx"]
+[ext_resource type="PackedScene" uid="uid://8vhk0lutwf13" path="res://Mapas/cake_map_02.tscn" id="4_t6034"]
+[ext_resource type="PackedScene" uid="uid://dkss7nomejf7" path="res://Mapas/cake_map_03.tscn" id="5_w1j0d"]
 [ext_resource type="Texture2D" uid="uid://b34hx8cargbrb" path="res://Recursos/Sprites/BackGround_003.png" id="6_3px8u"]
+[ext_resource type="PackedScene" uid="uid://5b1n61jseau4" path="res://Mapas/cake_map_04.tscn" id="6_kcv3j"]
 [ext_resource type="Texture2D" uid="uid://c071xi6t55p5h" path="res://Recursos/Sprites/BackGround_Nubes_001.png" id="7_krl2y"]
 [ext_resource type="Shader" uid="uid://ct6gpurrpd7mo" path="res://Recursos/Shaders/scrolling_effect.gdshader" id="7_llbv8"]
+[ext_resource type="PackedScene" uid="uid://d2d61x7lnxput" path="res://Mapas/cake_map_05.tscn" id="7_rgi0n"]
 [ext_resource type="Texture2D" uid="uid://cs5lax4k1w5dj" path="res://Recursos/Sprites/BackGround_Nubes_002.png" id="9_g47re"]
 [ext_resource type="Texture2D" uid="uid://befxarcmccru" path="res://Recursos/Sprites/Caramelotxt_002.png" id="10_g47re"]
 [ext_resource type="Script" uid="uid://dapcccx6kjxpl" path="res://Enitidades/Chaser/chaser.gd" id="12_7wn5i"]
+[ext_resource type="Script" uid="uid://dfyjdjh575a8m" path="res://Enitidades/MapAssets/dead_zone.gd" id="17_kcv3j"]
 
 [sub_resource type="Environment" id="Environment_m0jot"]
 background_mode = 3
@@ -24,7 +29,7 @@ shader = ExtResource("7_llbv8")
 shader_parameter/scrolling_texture = ExtResource("7_krl2y")
 shader_parameter/scroll_speed = -0.01
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0s2n"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1j0d"]
 render_priority = 0
 shader = ExtResource("3_m0jot")
 shader_parameter/zNear = 0.05
@@ -35,7 +40,7 @@ shader_parameter/wiggleFrequency = 0.08
 shader_parameter/wiggleAmplitude = 2.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_i3hsw"]
-material = SubResource("ShaderMaterial_e0s2n")
+material = SubResource("ShaderMaterial_w1j0d")
 flip_faces = true
 size = Vector2(2, 2)
 
@@ -59,6 +64,7 @@ curve = SubResource("Curve_3px8u")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ac6o2"]
 lifetime_randomness = 0.5
 particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, -5, 0)
 emission_shape = 3
 emission_box_extents = Vector3(2, 13, 3)
 angle_min = 1.07288e-05
@@ -91,7 +97,7 @@ script = ExtResource("1_i3hsw")
 player = NodePath("Player")
 cam = NodePath("Camera3D")
 tutorial_map = ExtResource("1_fsu5c")
-game_maps = Array[PackedScene]([ExtResource("3_ac6o2")])
+game_maps = Array[PackedScene]([ExtResource("3_7wn5i"), ExtResource("4_t6034"), ExtResource("5_w1j0d"), ExtResource("6_kcv3j"), ExtResource("7_rgi0n")])
 
 [node name="Player" parent="." instance=ExtResource("2_05nn2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5695, 1, 0)
@@ -152,6 +158,7 @@ mesh = SubResource("CylinderMesh_ac6o2")
 skeleton = NodePath("../..")
 
 [node name="Chaser" type="GPUParticles3D" parent="." node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.97, 2.97174, 0.342386)
 sorting_offset = 200.0
 amount = 1600
@@ -166,8 +173,9 @@ script = ExtResource("12_7wn5i")
 player = NodePath("../Player")
 max_distance = 30.0
 
-[node name="Area3D" type="Area3D" parent="Chaser"]
+[node name="DethZone" type="Area3D" parent="Chaser"]
+script = ExtResource("17_kcv3j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chaser/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chaser/DethZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57846, -2.49353, 0.364136)
 shape = SubResource("BoxShape3D_7wn5i")

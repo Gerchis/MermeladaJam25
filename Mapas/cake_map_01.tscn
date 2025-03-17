@@ -1,0 +1,226 @@
+[gd_scene load_steps=11 format=3 uid="uid://dks8ox8fgj6v8"]
+
+[ext_resource type="MeshLibrary" uid="uid://bh4ribb1ymbnn" path="res://Recursos/Tilesets/Pastel.tres" id="1_ulx05"]
+[ext_resource type="Script" uid="uid://cr7xmobeatnuw" path="res://Mapas/map_variation.gd" id="1_xosnh"]
+[ext_resource type="ArrayMesh" uid="uid://deygoh4m6qcqh" path="res://Recursos/Mallas/Texturizado_Plataforma_Suelo_Pinchos_001_Cube_001.res" id="2_7mo1w"]
+[ext_resource type="Script" uid="uid://dfyjdjh575a8m" path="res://Enitidades/MapAssets/dead_zone.gd" id="3_ms7ak"]
+[ext_resource type="PackedScene" uid="uid://cbdw4xwuk8ng5" path="res://Enitidades/MapAssets/ground_enemy.tscn" id="4_itd7c"]
+[ext_resource type="PackedScene" uid="uid://d0qwbmqfi4vqc" path="res://Enitidades/MapAssets/sprinkles.tscn" id="5_pss63"]
+[ext_resource type="ArrayMesh" uid="uid://pcd22u1kes2" path="res://Recursos/Mallas/Texturizado_Suelo_Gelatina_002_Cube_001.res" id="7_0bmq8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mo1w"]
+size = Vector3(1.41769, 0.831055, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ms7ak"]
+size = Vector3(6.52239, 0.831055, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bmq8"]
+size = Vector3(25.7863, 3.35712, 1)
+
+[node name="BaseMap" type="Node3D" node_paths=PackedStringArray("dificulty_variations")]
+script = ExtResource("1_xosnh")
+dificulty_variations = [NodePath("PlatformSpikes"), NodePath("PyramidSpikes"), NodePath("Enemies"), NodePath("Jelly")]
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -1, -1)
+mesh_library = ExtResource("1_ulx05")
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 7, 15, 0, 4, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, -9, 0, 1, -8, 0, 1, -7, 0, 1, -6, 0, 1, -5, 0, 1, -4, 0, 1, -3, 0, 1, -2, 0, 1, -1, 0, 1, -65536, 0, 1, -65535, 0, 1, -65521, 0, 5, -65520, 0, 1, -65519, 0, 1, -65518, 0, 1, -65517, 0, 1, -65516, 0, 1, -65515, 0, 1, -65514, 0, 1, -65513, 0, 1, -65512, 0, 1, -65511, 0, 1, -65510, 0, 1, -65509, 0, 1, -65508, 0, 1, -65507, 0, 1, -65506, 0, 1, 131067, 0, 8, 131068, 0, 10, 131069, 0, 10, 131070, 0, 10, 131071, 0, 10, 196605, 0, 5, 196606, 0, 1, 196607, 0, 1, 65536, 0, 9, 131072, 0, 12, 196608, 0, 2, 262143, 0, 3, 262142, 0, 3, 262141, 0, 131074, 262144, 0, 7, 327679, 0, 0, 327678, 0, 0, 327677, 0, 4, 262148, 0, 8, 262149, 0, 10, 262150, 0, 9, 393224, 0, 8, 393225, 0, 10, 393226, 0, 9, 262156, 0, 8, 262157, 0, 10, 262158, 0, 9, 65565, 0, 9, 65564, 0, 10, 65563, 0, 10, 65562, 0, 8, 131098, 0, 8, 131100, 0, 9, 131099, 0, 10, 196635, 0, 9, 196634, 0, 8, 262170, 0, 11, 262166, 0, 11, 196630, 0, 9, 196629, 0, 8, 131092, 0, 8, 131093, 0, 10, 131094, 0, 9, 65558, 0, 9, 65557, 0, 10, 65556, 0, 10, 65555, 0, 8, -65534, 0, 12)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="PlatformSpikes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlatformSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3492, 7.98441, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PlatformSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3087, 7.98441, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PlatformSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5364, 7.98441, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="PlatformSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4958, 7.98441, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="DeadZone" type="Area3D" parent="PlatformSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9415, 8.47141, 0)
+monitorable = false
+script = ExtResource("3_ms7ak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformSpikes/DeadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017025, -0.0844727, 0)
+shape = SubResource("BoxShape3D_7mo1w")
+
+[node name="DeadZone2" type="Area3D" parent="PlatformSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.1456, 8.47141, 0)
+monitorable = false
+script = ExtResource("3_ms7ak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformSpikes/DeadZone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0119629, -0.0844727, 0)
+shape = SubResource("BoxShape3D_7mo1w")
+
+[node name="DeadZone3" type="Area3D" parent="PlatformSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6866, 0.50646, 0)
+monitorable = false
+script = ExtResource("3_ms7ak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformSpikes/DeadZone3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51016, -0.0844727, 0)
+shape = SubResource("BoxShape3D_ms7ak")
+
+[node name="PyramidSpikes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PyramidSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3794, -0.0347628, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PyramidSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.3419, -0.0347628, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PyramidSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.3592, -0.0347628, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="PyramidSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.3886, -0.0347628, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="PyramidSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.345, -0.0347628, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="PyramidSpikes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3622, -0.0347628, -3.8147e-06)
+mesh = ExtResource("2_7mo1w")
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="GroundEnemy" parent="Enemies" instance=ExtResource("4_itd7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 8, 0)
+
+[node name="GroundEnemy2" parent="Enemies" instance=ExtResource("4_itd7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.9937, 12.01, 0)
+
+[node name="Sprinkles01" type="Node3D" parent="."]
+
+[node name="Sprinkle" parent="Sprinkles01" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.868, 9.03795, 0)
+
+[node name="Sprinkle2" parent="Sprinkles01" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8041, 9.03795, 0)
+
+[node name="Sprinkle3" parent="Sprinkles01" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7849, 9.03795, 0)
+
+[node name="Sprinkle7" parent="Sprinkles01" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8585, 7.07224, 0)
+
+[node name="Sprinkle8" parent="Sprinkles01" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9714, 4.94927, 0)
+
+[node name="Sprinkle4" parent="Sprinkles01" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.1311, 8.99863, 0)
+
+[node name="Sprinkle5" parent="Sprinkles01" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2147, 7.07224, 0)
+
+[node name="Sprinkle6" parent="Sprinkles01" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.0232, 4.79201, 0)
+
+[node name="Sprinkles02" type="Node3D" parent="."]
+
+[node name="Sprinkle" parent="Sprinkles02" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57058, 1.05244, 0)
+
+[node name="Sprinkle2" parent="Sprinkles02" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88795, 1.11483, 0)
+
+[node name="Sprinkle3" parent="Sprinkles02" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93765, 3.04882, 0)
+
+[node name="Sprinkle4" parent="Sprinkles02" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4683, 8.7884, 0)
+
+[node name="Sprinkle5" parent="Sprinkles02" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.81, 8.85079, 0)
+
+[node name="Sprinkle6" parent="Sprinkles02" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5162, 12.7188, 0)
+
+[node name="Sprinkle7" parent="Sprinkles02" instance=ExtResource("5_pss63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0117, 12.7188, 0)
+
+[node name="Jelly" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7079, -2.2344, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6322, -2.2344, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6322, -2.2344, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6322, -2.2344, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6322, -2.2344, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5887, -2.2344, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5844, -2.2344, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 50.1607, -1.62579, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 46.2363, -1.62579, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 42.2363, -1.62579, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 38.2363, -1.62579, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 34.2363, -1.62579, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 30.2799, -1.62579, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Jelly"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 26.2842, -1.62579, 0)
+mesh = ExtResource("7_0bmq8")
+
+[node name="DeadZone" type="Area3D" parent="Jelly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2373, -1.63723, 0)
+monitorable = false
+script = ExtResource("3_ms7ak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Jelly/DeadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34426, -0.352997, 0)
+shape = SubResource("BoxShape3D_0bmq8")
